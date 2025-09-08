@@ -1,0 +1,868 @@
+<?xml version='1.0' encoding='utf-8'?>
+<festivals>
+    <festival name="Venice Festival" year="2021" location="Germany">
+        <film id="M0363" category="Director" status="Nominated">Silent Night</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2013" location="Deutschland">
+        <film category="Director" status="Nominee">Shadow Walker</film>
+        <film id="M0921" category="Director" status="Nominated">Infinite Light</film>
+        <film id="M0801" category="Director" status="Nominee">Secret Memory</film>
+    </festival>
+    <festival name="Locarno" year="2009" location="Germany">
+        <film id="M0695" category="Best Film" status="Winner">Golden Light</film>
+        <film id="M0498" category="Best Film" status="Nominee">Dream Quest</film>
+        <film id="M0634" category="Best Film" status="Nominee">Lost Horizon</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2007" location="United States">
+        <film category="BestFilm" status="Nominee">Broken Promise</film>
+        <film category="BestFilm" status="Nominated">Shadow River</film>
+        <film id="M0617" category="Best Actor" status="Nominated">Golden Walker</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2021" location="United States">
+        <film category="BestFilm" status="Nominated">Silent Echo</film>
+        <film id="M0565" category="BestFilm" status="Winner">Secret Voyage</film>
+        <film id="M0720" category="BestFilm" status="Winner">Silent Light</film>
+    </festival>
+    <festival name="Sundance" year="2003" location="United States">
+        <film id="M0503" category="Best Film" status="Nominated">Golden Night</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2004" location="Deutschland">
+        <film id="M0837" category="BestFilm" status="Nominee">Dream Walker</film>
+        <film category="Director" status="Nominee">Dream Sky</film>
+    </festival>
+    <festival name="Venice Festival" year="2012" location="États-Unis">
+        <film id="M0050" category="Best Film" status="Nominee">Secret Echo</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2001" location="États-Unis">
+        <film category="Director" status="Winner">Infinite Quest</film>
+        <film category="Best Actor" status="Nominated">Silent Horizon</film>
+        <film category="BestFilm" status="Nominee">Dream Promise</film>
+    </festival>
+    <festival name="Sundance" year="2006" location="Deutschland">
+        <film category="Best Actor" status="Winner">Infinite River</film>
+        <film id="M0943" category="BestFilm" status="Winner">Crimson Time</film>
+    </festival>
+    <festival name="Venice Festival" year="2023" location="États-Unis">
+        <film id="M0345" category="Best Actor" status="Winner">Shadow City</film>
+    </festival>
+    <festival name="Berlinale" year="2016" location="USA">
+        <film id="M0382" category="Best Actor" status="Nominee">Hidden Sky</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2013" location="France">
+        <film id="M0797" category="BestFilm" status="Winner">Silent Walker</film>
+    </festival>
+    <festival name="Berlinale" year="2005" location="États-Unis">
+        <film category="Best Actor" status="Winner">Silent Promise</film>
+        <film id="M0917" category="Director" status="Nominee">Broken City</film>
+    </festival>
+    <festival name="Berlinale" year="2002" location="USA">
+        <film category="Best Actor" status="Nominated">Hidden Sky</film>
+    </festival>
+    <festival name="Locarno" year="2012" location="France">
+        <film category="BestFilm" status="Nominee">Eternal River</film>
+    </festival>
+    <festival name="Sundance" year="2013" location="France">
+        <film category="Director" status="Nominee">Golden Memory</film>
+        <film id="M0360" category="Best Actor" status="Winner">Broken Night</film>
+        <film category="Director" status="Winner">Eternal Horizon</film>
+    </festival>
+    <festival name="Venice Festival" year="2012" location="UK">
+        <film category="BestFilm" status="Nominee">Golden Walker</film>
+        <film id="M0470" category="Best Film" status="Winner">Golden Light</film>
+    </festival>
+    <festival name="Sundance" year="2017" location="Deutschland">
+        <film id="M0069" category="BestFilm" status="Nominated">Broken Walker</film>
+        <film category="Best Film" status="Winner">Secret Quest</film>
+        <film id="M0134" category="Director" status="Nominated">Infinite City</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2005" location="Germany">
+        <film category="Director" status="Nominee">Final Promise</film>
+        <film id="M0257" category="BestFilm" status="Nominee">Broken Voyage</film>
+    </festival>
+    <festival name="Berlinale" year="2022" location="Germany">
+        <film id="M0676" category="BestFilm" status="Nominated">Final Voyage</film>
+        <film id="M0921" category="Best Actor" status="Nominated">Infinite Light</film>
+    </festival>
+    <festival name="Sundance" year="2003" location="États-Unis">
+        <film id="M0957" category="Director" status="Nominee">Shadow Echo</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2001" location="États-Unis">
+        <film category="Director" status="Winner">Secret River</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2019" location="United States">
+        <film id="M0298" category="BestFilm" status="Winner">Shadow Horizon</film>
+        <film category="Director" status="Nominee">Hidden Echo</film>
+    </festival>
+    <festival name="Venice Festival" year="2005" location="USA">
+        <film category="Best Actor" status="Nominated">Infinite Voyage</film>
+        <film id="M0247" category="Best Actor" status="Nominee">Shadow Night</film>
+    </festival>
+    <festival name="Locarno" year="2018" location="United States">
+        <film category="Director" status="Winner">Shadow Promise</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2008" location="United Kingdom">
+        <film id="M0286" category="Best Film" status="Winner">Broken Horizon</film>
+        <film id="M0446" category="Best Actor" status="Winner">Crimson River</film>
+        <film id="M0924" category="Best Film" status="Nominated">Broken Light</film>
+    </festival>
+    <festival name="Sundance" year="2002" location="Germany">
+        <film category="Best Film" status="Nominee">Golden Voyage</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2015" location="United States">
+        <film category="Best Actor" status="Winner">Golden Light</film>
+        <film id="M0098" category="BestFilm" status="Winner">Silent Walker</film>
+    </festival>
+    <festival name="Locarno" year="2015" location="United Kingdom">
+        <film id="M0510" category="Director" status="Winner">Broken Horizon</film>
+        <film id="M0765" category="Director" status="Winner">Broken Echo</film>
+        <film id="M0738" category="Best Film" status="Nominee">Golden Voyage</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2002" location="Germany">
+        <film id="M0003" category="Best Actor" status="Nominee">Silent Quest</film>
+        <film category="BestFilm" status="Winner">Infinite Time</film>
+    </festival>
+    <festival name="Sundance" year="2013" location="United Kingdom">
+        <film id="M0611" category="Best Actor" status="Winner">Golden Night</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2004" location="Germany">
+        <film id="M0090" category="Best Film" status="Nominated">Shadow Voyage</film>
+    </festival>
+    <festival name="Venice Festival" year="2000" location="UK">
+        <film category="Director" status="Nominee">Golden Horizon</film>
+        <film id="M0565" category="BestFilm" status="Nominee">Secret Voyage</film>
+        <film category="Best Actor" status="Nominated">Broken Walker</film>
+    </festival>
+    <festival name="Venice Festival" year="2024" location="États-Unis">
+        <film id="M0309" category="Best Film" status="Winner">Golden Sky</film>
+        <film category="Best Film" status="Nominated">Hidden Quest</film>
+        <film id="M0010" category="BestFilm" status="Nominated">Secret Promise</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2008" location="Germany">
+        <film id="M0338" category="BestFilm" status="Winner">Lost Light</film>
+        <film id="M0742" category="Best Film" status="Nominee">Dream Walker</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2005" location="USA">
+        <film id="M0394" category="Best Actor" status="Nominee">Crimson Walker</film>
+    </festival>
+    <festival name="Sundance" year="2011" location="USA">
+        <film id="M0056" category="Best Actor" status="Winner">Dream Horizon</film>
+        <film id="M0305" category="Best Film" status="Winner">Dream City</film>
+        <film id="M0736" category="Director" status="Nominated">Hidden Walker</film>
+    </festival>
+    <festival name="Berlinale" year="2004" location="United States">
+        <film id="M0164" category="BestFilm" status="Nominated">Secret Walker</film>
+        <film id="M0967" category="Best Actor" status="Winner">Infinite Memory</film>
+    </festival>
+    <festival name="Locarno" year="2008" location="USA">
+        <film category="Director" status="Nominee">Lost Quest</film>
+    </festival>
+    <festival name="Sundance" year="2003" location="USA">
+        <film id="M0269" category="Director" status="Nominee">Silent Quest</film>
+        <film category="BestFilm" status="Nominated">Hidden Night</film>
+    </festival>
+    <festival name="Venice Festival" year="2016" location="Deutschland">
+        <film id="M0593" category="Best Actor" status="Nominee">Infinite Quest</film>
+        <film id="M0556" category="Director" status="Nominated">Silent River</film>
+        <film category="Director" status="Winner">Dream Sky</film>
+    </festival>
+    <festival name="Locarno" year="2005" location="France">
+        <film id="M0089" category="Best Film" status="Winner">Hidden Echo</film>
+        <film category="BestFilm" status="Nominee">Silent Night</film>
+    </festival>
+    <festival name="Locarno" year="2006" location="United Kingdom">
+        <film id="M0260" category="Director" status="Nominee">Eternal Light</film>
+        <film id="M0354" category="BestFilm" status="Nominated">Shadow Light</film>
+    </festival>
+    <festival name="Sundance" year="2008" location="Deutschland">
+        <film id="M0713" category="Best Actor" status="Winner">Dream Quest</film>
+        <film category="Best Film" status="Nominee">Shadow River</film>
+        <film id="M0338" category="Best Film" status="Nominee">Lost Light</film>
+    </festival>
+    <festival name="Locarno" year="2016" location="France">
+        <film id="M0255" category="Best Film" status="Nominee">Silent Night</film>
+        <film id="M0100" category="Best Film" status="Nominated">Secret Sky</film>
+        <film id="M0030" category="BestFilm" status="Winner">Infinite City</film>
+    </festival>
+    <festival name="Locarno" year="2001" location="Deutschland">
+        <film id="M0531" category="Best Actor" status="Winner">Broken Walker</film>
+        <film category="Best Film" status="Winner">Shadow River</film>
+        <film id="M0658" category="Best Actor" status="Winner">Broken Quest</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2008" location="United Kingdom">
+        <film id="M0574" category="BestFilm" status="Nominated">Secret River</film>
+        <film id="M0883" category="Best Actor" status="Nominee">Final City</film>
+        <film id="M0608" category="Director" status="Nominee">Silent City</film>
+    </festival>
+    <festival name="Sundance" year="2003" location="France">
+        <film id="M0143" category="Director" status="Nominated">Hidden Night</film>
+        <film id="M0686" category="Best Film" status="Winner">Golden Horizon</film>
+        <film category="Director" status="Winner">Lost Walker</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2003" location="United Kingdom">
+        <film id="M0732" category="Director" status="Winner">Shadow Night</film>
+    </festival>
+    <festival name="Berlinale" year="2007" location="France">
+        <film category="Best Film" status="Nominated">Final Quest</film>
+    </festival>
+    <festival name="Venice Festival" year="2016" location="United Kingdom">
+        <film id="M0753" category="BestFilm" status="Winner">Dream River</film>
+    </festival>
+    <festival name="Berlinale" year="2021" location="UK">
+        <film category="Best Actor" status="Nominee">Secret Memory</film>
+        <film id="M0642" category="Best Actor" status="Nominee">Crimson Memory</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2002" location="UK">
+        <film id="M0163" category="BestFilm" status="Nominated">Final Light</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2011" location="United Kingdom">
+        <film id="M0603" category="Best Actor" status="Nominee">Crimson Voyage</film>
+        <film id="M0243" category="Director" status="Nominee">Eternal Promise</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2005" location="Germany">
+        <film id="M0142" category="Director" status="Winner">Secret City</film>
+        <film id="M0351" category="Best Actor" status="Nominated">Eternal Memory</film>
+        <film category="BestFilm" status="Nominee">Eternal City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2007" location="Germany">
+        <film id="M0535" category="Best Film" status="Nominated">Eternal River</film>
+        <film id="M0314" category="Best Actor" status="Winner">Shadow Night</film>
+        <film id="M0213" category="Director" status="Nominee">Golden Time</film>
+    </festival>
+    <festival name="Sundance" year="2012" location="Deutschland">
+        <film category="BestFilm" status="Nominated">Hidden City</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2020" location="Germany">
+        <film id="M0462" category="Director" status="Nominee">Infinite Walker</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2012" location="UK">
+        <film id="M0388" category="Best Film" status="Nominated">Shadow Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2009" location="United States">
+        <film id="M0944" category="BestFilm" status="Nominated">Golden Quest</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2005" location="France">
+        <film id="M0134" category="BestFilm" status="Winner">Infinite City</film>
+    </festival>
+    <festival name="Berlinale" year="2024" location="États-Unis">
+        <film id="M0473" category="BestFilm" status="Nominated">Dream Echo</film>
+        <film id="M0235" category="Best Actor" status="Nominated">Eternal Quest</film>
+        <film id="M0566" category="BestFilm" status="Winner">Silent Light</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2024" location="Deutschland">
+        <film id="M0312" category="Best Film" status="Nominee">Infinite Light</film>
+    </festival>
+    <festival name="Venice Festival" year="2009" location="United Kingdom">
+        <film category="Best Film" status="Nominee">Secret Voyage</film>
+    </festival>
+    <festival name="Venice Festival" year="2015" location="UK">
+        <film id="M0307" category="Best Film" status="Nominee">Lost Memory</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2009" location="USA">
+        <film id="M0830" category="Director" status="Nominated">Dream Walker</film>
+        <film category="Best Film" status="Nominee">Shadow Light</film>
+    </festival>
+    <festival name="Berlinale" year="2018" location="United Kingdom">
+        <film id="M0014" category="Best Actor" status="Winner">Crimson Echo</film>
+        <film id="M0877" category="Director" status="Winner">Infinite Horizon</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2019" location="UK">
+        <film id="M0684" category="BestFilm" status="Nominee">Golden Sky</film>
+        <film category="Best Actor" status="Nominated">Final Echo</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2016" location="USA">
+        <film category="Director" status="Winner">Infinite Walker</film>
+        <film category="Best Actor" status="Nominee">Hidden Promise</film>
+    </festival>
+    <festival name="Locarno" year="2019" location="United States">
+        <film id="M0767" category="Best Actor" status="Nominee">Dream Voyage</film>
+        <film id="M0297" category="Best Actor" status="Nominated">Golden Echo</film>
+    </festival>
+    <festival name="Venice Festival" year="2011" location="UK">
+        <film id="M0847" category="Best Film" status="Nominee">Shadow Time</film>
+        <film id="M0648" category="Director" status="Winner">Infinite Walker</film>
+    </festival>
+    <festival name="Locarno" year="2017" location="France">
+        <film id="M0738" category="Director" status="Winner">Golden Voyage</film>
+    </festival>
+    <festival name="Venice Festival" year="2022" location="UK">
+        <film id="M0490" category="Director" status="Winner">Hidden Horizon</film>
+        <film id="M0715" category="Director" status="Nominated">Broken Quest</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2021" location="États-Unis">
+        <film category="Best Actor" status="Nominee">Dream Walker</film>
+        <film id="M0689" category="BestFilm" status="Nominee">Crimson Walker</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2023" location="France">
+        <film id="M0343" category="Director" status="Winner">Infinite Echo</film>
+        <film id="M0393" category="Director" status="Nominee">Shadow Time</film>
+        <film id="M0751" category="Best Actor" status="Nominee">Secret Sky</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2008" location="France">
+        <film id="M0920" category="Director" status="Nominated">Hidden Echo</film>
+        <film id="M0392" category="Director" status="Nominated">Final Memory</film>
+        <film id="M0482" category="BestFilm" status="Nominee">Golden Memory</film>
+    </festival>
+    <festival name="Berlinale" year="2006" location="France">
+        <film id="M0652" category="BestFilm" status="Nominated">Secret Horizon</film>
+        <film id="M0464" category="Best Film" status="Nominated">Silent Horizon</film>
+    </festival>
+    <festival name="Sundance" year="2018" location="UK">
+        <film category="BestFilm" status="Nominee">Crimson Night</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2012" location="France">
+        <film id="M0577" category="Director" status="Winner">Dream Sky</film>
+    </festival>
+    <festival name="Sundance" year="2000" location="France">
+        <film id="M0005" category="Director" status="Nominated">Broken Walker</film>
+        <film id="M0192" category="Best Film" status="Nominated">Lost City</film>
+        <film id="M0993" category="BestFilm" status="Nominee">Broken Echo</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2022" location="Deutschland">
+        <film id="M0829" category="BestFilm" status="Winner">Shadow Echo</film>
+        <film category="Director" status="Nominee">Hidden Promise</film>
+        <film category="Best Actor" status="Nominee">Final Sky</film>
+    </festival>
+    <festival name="Sundance" year="2011" location="United Kingdom">
+        <film id="M0317" category="Director" status="Nominee">Secret Memory</film>
+        <film id="M0564" category="Best Actor" status="Nominated">Silent River</film>
+    </festival>
+    <festival name="Sundance" year="2013" location="UK">
+        <film id="M0569" category="Best Actor" status="Nominated">Crimson Memory</film>
+        <film id="M0247" category="Best Actor" status="Nominated">Shadow Night</film>
+    </festival>
+    <festival name="Venice Festival" year="2011" location="Deutschland">
+        <film id="M0946" category="BestFilm" status="Nominated">Shadow Horizon</film>
+    </festival>
+    <festival name="Locarno" year="2015" location="États-Unis">
+        <film id="M0910" category="Best Film" status="Nominated">Golden Walker</film>
+    </festival>
+    <festival name="Locarno" year="2013" location="Deutschland">
+        <film id="M0227" category="Best Film" status="Nominee">Dream River</film>
+        <film category="Best Film" status="Nominee">Silent Horizon</film>
+    </festival>
+    <festival name="Berlinale" year="2009" location="France">
+        <film id="M0510" category="Best Actor" status="Winner">Broken Horizon</film>
+        <film category="BestFilm" status="Nominated">Golden Night</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2021" location="United Kingdom">
+        <film id="M0156" category="BestFilm" status="Winner">Hidden Night</film>
+        <film category="Best Actor" status="Winner">Silent Memory</film>
+    </festival>
+    <festival name="Venice Festival" year="2017" location="Germany">
+        <film category="Best Film" status="Nominee">Broken Echo</film>
+        <film id="M0036" category="Best Film" status="Winner">Crimson River</film>
+    </festival>
+    <festival name="Berlinale" year="2017" location="Deutschland">
+        <film id="M0448" category="Best Film" status="Nominee">Hidden Voyage</film>
+        <film id="M0657" category="BestFilm" status="Nominated">Infinite Light</film>
+        <film id="M0679" category="BestFilm" status="Nominee">Final Promise</film>
+    </festival>
+    <festival name="Sundance" year="2024" location="France">
+        <film category="Best Actor" status="Nominated">Lost Horizon</film>
+        <film category="Best Film" status="Nominee">Shadow City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2015" location="United States">
+        <film id="M0783" category="Director" status="Nominated">Golden Light</film>
+        <film id="M0612" category="Best Film" status="Nominee">Final Promise</film>
+        <film category="Best Actor" status="Nominated">Silent Quest</film>
+    </festival>
+    <festival name="Locarno" year="2021" location="United States">
+        <film category="Director" status="Winner">Crimson Quest</film>
+        <film id="M0248" category="Best Actor" status="Nominated">Secret Time</film>
+    </festival>
+    <festival name="Locarno" year="2021" location="France">
+        <film id="M0572" category="Best Film" status="Winner">Hidden City</film>
+    </festival>
+    <festival name="Sundance" year="2012" location="France">
+        <film id="M0249" category="Director" status="Nominee">Secret Walker</film>
+        <film id="M0692" category="BestFilm" status="Nominated">Infinite Echo</film>
+        <film category="Best Film" status="Nominee">Lost Time</film>
+    </festival>
+    <festival name="Berlinale" year="2009" location="Deutschland">
+        <film id="M0383" category="Best Actor" status="Nominee">Lost Walker</film>
+        <film category="Best Actor" status="Nominee">Eternal Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2019" location="Deutschland">
+        <film id="M0477" category="Best Actor" status="Nominated">Lost Sky</film>
+        <film id="M0256" category="BestFilm" status="Winner">Golden Quest</film>
+    </festival>
+    <festival name="Locarno" year="2000" location="Germany">
+        <film category="Best Film" status="Nominee">Infinite Quest</film>
+        <film id="M0828" category="Best Film" status="Nominated">Crimson Memory</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2008" location="United Kingdom">
+        <film id="M0736" category="Director" status="Winner">Hidden Walker</film>
+    </festival>
+    <festival name="Locarno" year="2009" location="United States">
+        <film id="M0985" category="BestFilm" status="Winner">Broken Sky</film>
+        <film category="Director" status="Winner">Lost Light</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2023" location="Germany">
+        <film category="BestFilm" status="Nominated">Secret River</film>
+        <film id="M0985" category="Director" status="Nominated">Broken Sky</film>
+    </festival>
+    <festival name="Venice Festival" year="2015" location="UK">
+        <film id="M0345" category="BestFilm" status="Winner">Shadow City</film>
+    </festival>
+    <festival name="Locarno" year="2009" location="États-Unis">
+        <film id="M0312" category="BestFilm" status="Nominated">Infinite Light</film>
+        <film id="M0709" category="BestFilm" status="Winner">Crimson Horizon</film>
+        <film category="Best Actor" status="Nominated">Crimson Night</film>
+    </festival>
+    <festival name="Berlinale" year="2009" location="France">
+        <film id="M0266" category="Director" status="Winner">Broken Sky</film>
+    </festival>
+    <festival name="Venice Festival" year="2022" location="United States">
+        <film id="M0521" category="Best Actor" status="Nominated">Hidden Echo</film>
+        <film id="M0773" category="Best Film" status="Nominee">Infinite Voyage</film>
+        <film id="M0350" category="Director" status="Nominee">Eternal Night</film>
+    </festival>
+    <festival name="Sundance" year="2015" location="United Kingdom">
+        <film category="BestFilm" status="Winner">Lost Quest</film>
+        <film id="M0776" category="BestFilm" status="Nominated">Secret Quest</film>
+    </festival>
+    <festival name="Berlinale" year="2018" location="France">
+        <film category="Best Film" status="Nominated">Shadow Walker</film>
+        <film id="M0781" category="Best Film" status="Nominated">Shadow Light</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2015" location="UK">
+        <film category="BestFilm" status="Nominated">Broken Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2003" location="États-Unis">
+        <film category="Director" status="Winner">Crimson Promise</film>
+        <film id="M0504" category="Director" status="Winner">Secret Echo</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2005" location="United States">
+        <film id="M0127" category="BestFilm" status="Nominee">Final Horizon</film>
+        <film id="M0962" category="Best Film" status="Winner">Secret City</film>
+        <film id="M0702" category="Best Actor" status="Winner">Secret Time</film>
+    </festival>
+    <festival name="Locarno" year="2016" location="Germany">
+        <film id="M0015" category="BestFilm" status="Nominated">Lost Echo</film>
+    </festival>
+    <festival name="Berlinale" year="2001" location="États-Unis">
+        <film id="M0463" category="Best Actor" status="Nominee">Secret Quest</film>
+        <film category="BestFilm" status="Nominated">Dream Memory</film>
+        <film category="BestFilm" status="Nominee">Crimson Echo</film>
+    </festival>
+    <festival name="Sundance" year="2014" location="Germany">
+        <film category="Best Film" status="Nominee">Secret Memory</film>
+        <film category="Best Film" status="Nominated">Broken Memory</film>
+        <film category="Best Film" status="Winner">Silent City</film>
+    </festival>
+    <festival name="Venice Festival" year="2012" location="UK">
+        <film id="M0580" category="Best Actor" status="Winner">Broken City</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2003" location="Germany">
+        <film id="M0989" category="Best Actor" status="Winner">Silent Memory</film>
+        <film id="M0228" category="Best Actor" status="Nominee">Final Quest</film>
+        <film category="Director" status="Nominee">Lost Walker</film>
+    </festival>
+    <festival name="Berlinale" year="2007" location="United States">
+        <film id="M0209" category="BestFilm" status="Nominated">Infinite Voyage</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2006" location="Germany">
+        <film id="M0622" category="BestFilm" status="Nominee">Infinite Night</film>
+    </festival>
+    <festival name="Venice Festival" year="2020" location="Deutschland">
+        <film category="Director" status="Nominee">Lost Night</film>
+    </festival>
+    <festival name="Berlinale" year="2006" location="USA">
+        <film category="Best Actor" status="Nominated">Crimson River</film>
+        <film id="M0805" category="Director" status="Winner">Final Night</film>
+        <film category="Best Actor" status="Nominee">Golden Voyage</film>
+    </festival>
+    <festival name="Venice Festival" year="2023" location="États-Unis">
+        <film id="M0554" category="BestFilm" status="Nominee">Silent City</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2020" location="France">
+        <film category="BestFilm" status="Nominated">Secret City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2015" location="USA">
+        <film category="BestFilm" status="Nominated">Secret Walker</film>
+        <film category="Best Film" status="Winner">Dream River</film>
+    </festival>
+    <festival name="Berlinale" year="2016" location="UK">
+        <film id="M0634" category="Best Actor" status="Nominated">Lost Horizon</film>
+        <film category="Best Film" status="Nominee">Dream Time</film>
+    </festival>
+    <festival name="Sundance" year="2007" location="United Kingdom">
+        <film id="M0507" category="BestFilm" status="Nominated">Infinite Voyage</film>
+        <film id="M0111" category="Director" status="Nominated">Final City</film>
+    </festival>
+    <festival name="Locarno" year="2012" location="United Kingdom">
+        <film category="BestFilm" status="Nominated">Secret Voyage</film>
+    </festival>
+    <festival name="Berlinale" year="2016" location="United States">
+        <film id="M0191" category="Best Film" status="Nominee">Final Promise</film>
+        <film id="M0500" category="BestFilm" status="Nominated">Final Walker</film>
+        <film id="M0148" category="Director" status="Nominee">Final River</film>
+    </festival>
+    <festival name="Berlinale" year="2021" location="United Kingdom">
+        <film id="M0208" category="Best Film" status="Nominated">Lost Time</film>
+        <film id="M0603" category="Director" status="Winner">Crimson Voyage</film>
+        <film category="Best Actor" status="Winner">Dream City</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2013" location="United States">
+        <film category="Best Film" status="Nominated">Final Promise</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2016" location="United States">
+        <film id="M0209" category="Best Actor" status="Nominee">Infinite Voyage</film>
+        <film id="M0554" category="Best Actor" status="Nominated">Silent City</film>
+    </festival>
+    <festival name="Sundance" year="2022" location="UK">
+        <film id="M0542" category="Best Actor" status="Nominated">Dream Memory</film>
+        <film category="Best Actor" status="Winner">Golden River</film>
+        <film category="BestFilm" status="Winner">Final Walker</film>
+    </festival>
+    <festival name="Locarno" year="2020" location="USA">
+        <film category="Best Film" status="Winner">Dream Horizon</film>
+    </festival>
+    <festival name="Sundance" year="2004" location="USA">
+        <film id="M0451" category="Best Actor" status="Nominated">Shadow Walker</film>
+        <film id="M0073" category="Director" status="Winner">Infinite Sky</film>
+    </festival>
+    <festival name="Berlinale" year="2016" location="UK">
+        <film category="Best Actor" status="Nominated">Infinite Voyage</film>
+    </festival>
+    <festival name="Locarno" year="2022" location="Deutschland">
+        <film id="M0079" category="Best Actor" status="Nominated">Lost Quest</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2016" location="United States">
+        <film id="M0414" category="Director" status="Nominated">Shadow Walker</film>
+        <film category="Best Actor" status="Winner">Dream River</film>
+        <film id="M0001" category="Best Film" status="Nominee">Crimson Sky</film>
+    </festival>
+    <festival name="Sundance" year="2004" location="États-Unis">
+        <film category="Best Film" status="Winner">Infinite Light</film>
+        <film id="M0508" category="Best Film" status="Nominated">Secret Sky</film>
+        <film id="M0169" category="Best Actor" status="Nominee">Crimson City</film>
+    </festival>
+    <festival name="Berlinale" year="2000" location="UK">
+        <film id="M0993" category="Director" status="Winner">Broken Echo</film>
+        <film id="M0308" category="Best Actor" status="Nominated">Silent Memory</film>
+        <film category="BestFilm" status="Winner">Infinite Time</film>
+    </festival>
+    <festival name="Sundance" year="2024" location="UK">
+        <film id="M0543" category="BestFilm" status="Winner">Dream City</film>
+        <film id="M0634" category="Director" status="Nominee">Lost Horizon</film>
+    </festival>
+    <festival name="Sundance" year="2009" location="France">
+        <film category="Director" status="Winner">Final Walker</film>
+        <film id="M0142" category="Best Actor" status="Nominated">Secret City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2001" location="États-Unis">
+        <film id="M0890" category="Director" status="Nominated">Golden Promise</film>
+        <film id="M0611" category="Best Film" status="Nominee">Golden Night</film>
+        <film id="M0993" category="Director" status="Nominated">Broken Echo</film>
+    </festival>
+    <festival name="Berlinale" year="2014" location="États-Unis">
+        <film id="M0841" category="Best Film" status="Nominated">Silent Walker</film>
+        <film id="M0773" category="BestFilm" status="Nominated">Infinite Voyage</film>
+    </festival>
+    <festival name="Berlinale" year="2009" location="Germany">
+        <film id="M0089" category="Best Film" status="Nominated">Hidden Echo</film>
+    </festival>
+    <festival name="Sundance" year="2015" location="United States">
+        <film id="M0801" category="Director" status="Nominated">Secret Memory</film>
+        <film id="M0452" category="Best Film" status="Winner">Shadow Promise</film>
+    </festival>
+    <festival name="Locarno" year="2021" location="United States">
+        <film id="M0943" category="Best Actor" status="Nominee">Crimson Time</film>
+        <film id="M0249" category="BestFilm" status="Winner">Secret Walker</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2020" location="United States">
+        <film id="M0800" category="Best Film" status="Nominee">Final Voyage</film>
+    </festival>
+    <festival name="Locarno" year="2002" location="Deutschland">
+        <film id="M0388" category="Director" status="Nominated">Shadow Promise</film>
+        <film id="M0631" category="Best Actor" status="Winner">Eternal Walker</film>
+        <film id="M0561" category="Best Film" status="Nominee">Eternal Light</film>
+    </festival>
+    <festival name="Berlinale" year="2018" location="États-Unis">
+        <film id="M0862" category="BestFilm" status="Nominated">Eternal Promise</film>
+        <film id="M0921" category="BestFilm" status="Winner">Infinite Light</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2014" location="Deutschland">
+        <film category="Best Actor" status="Nominee">Hidden Night</film>
+        <film id="M0205" category="BestFilm" status="Nominated">Secret River</film>
+    </festival>
+    <festival name="Venice Festival" year="2013" location="France">
+        <film id="M0742" category="BestFilm" status="Nominated">Dream Walker</film>
+        <film category="BestFilm" status="Nominee">Crimson Walker</film>
+    </festival>
+    <festival name="Sundance" year="2004" location="United Kingdom">
+        <film id="M0586" category="Best Actor" status="Winner">Secret Time</film>
+        <film id="M0476" category="Director" status="Nominee">Silent Night</film>
+    </festival>
+    <festival name="Locarno" year="2023" location="United Kingdom">
+        <film id="M0829" category="Director" status="Nominee">Shadow Echo</film>
+        <film id="M0283" category="Director" status="Winner">Hidden Horizon</film>
+        <film id="M0268" category="Best Actor" status="Winner">Infinite Time</film>
+    </festival>
+    <festival name="Berlinale" year="2006" location="United States">
+        <film id="M0349" category="Best Actor" status="Winner">Secret Night</film>
+    </festival>
+    <festival name="Venice Festival" year="2009" location="UK">
+        <film id="M0505" category="Best Film" status="Nominee">Eternal Night</film>
+        <film id="M0834" category="Director" status="Nominee">Hidden Night</film>
+    </festival>
+    <festival name="Locarno" year="2008" location="Germany">
+        <film id="M0821" category="Best Film" status="Nominee">Shadow Walker</film>
+    </festival>
+    <festival name="Locarno" year="2021" location="United Kingdom">
+        <film category="Best Film" status="Nominated">Shadow Quest</film>
+        <film category="Director" status="Nominee">Secret Walker</film>
+    </festival>
+    <festival name="Venice Festival" year="2022" location="UK">
+        <film category="Best Actor" status="Nominated">Eternal Horizon</film>
+        <film id="M0107" category="Best Actor" status="Nominated">Crimson Light</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2011" location="États-Unis">
+        <film id="M0682" category="Best Film" status="Nominee">Golden Time</film>
+        <film category="Director" status="Nominee">Dream Walker</film>
+        <film category="Director" status="Nominee">Hidden Memory</film>
+    </festival>
+    <festival name="Venice Festival" year="2015" location="United Kingdom">
+        <film id="M0925" category="Best Actor" status="Nominated">Final Night</film>
+    </festival>
+    <festival name="Locarno" year="2014" location="United States">
+        <film id="M0700" category="Best Actor" status="Winner">Hidden Light</film>
+        <film category="Best Actor" status="Nominee">Lost Horizon</film>
+        <film id="M0423" category="Best Actor" status="Winner">Secret Memory</film>
+    </festival>
+    <festival name="Berlinale" year="2000" location="United States">
+        <film id="M0631" category="Best Actor" status="Nominee">Eternal Walker</film>
+        <film id="M0487" category="Best Film" status="Winner">Final Night</film>
+    </festival>
+    <festival name="Venice Festival" year="2016" location="USA">
+        <film id="M0337" category="Best Film" status="Nominated">Final Echo</film>
+        <film id="M0517" category="Best Actor" status="Nominee">Final Promise</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2008" location="Deutschland">
+        <film category="Best Film" status="Winner">Silent Night</film>
+        <film id="M0288" category="Best Film" status="Nominated">Lost Echo</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2006" location="Germany">
+        <film id="M0218" category="Best Film" status="Winner">Golden City</film>
+    </festival>
+    <festival name="Locarno" year="2004" location="UK">
+        <film id="M0088" category="Director" status="Nominee">Silent Quest</film>
+    </festival>
+    <festival name="Sundance" year="2009" location="France">
+        <film id="M0913" category="BestFilm" status="Winner">Eternal Quest</film>
+    </festival>
+    <festival name="Locarno" year="2001" location="Germany">
+        <film category="Director" status="Nominated">Hidden Voyage</film>
+        <film category="Best Film" status="Nominee">Broken Walker</film>
+        <film id="M0139" category="Best Film" status="Winner">Final Horizon</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2019" location="UK">
+        <film id="M0182" category="BestFilm" status="Winner">Secret Walker</film>
+        <film id="M0911" category="Best Actor" status="Nominated">Secret River</film>
+        <film id="M0834" category="Best Film" status="Nominee">Hidden Night</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2005" location="United States">
+        <film id="M0209" category="BestFilm" status="Nominated">Infinite Voyage</film>
+        <film id="M0021" category="Director" status="Nominee">Shadow Promise</film>
+        <film id="M0569" category="Best Film" status="Nominated">Crimson Memory</film>
+    </festival>
+    <festival name="Locarno" year="2007" location="United Kingdom">
+        <film category="Director" status="Nominated">Eternal Horizon</film>
+        <film id="M0984" category="BestFilm" status="Winner">Lost Night</film>
+        <film category="Best Film" status="Winner">Silent Horizon</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2004" location="États-Unis">
+        <film id="M0762" category="Best Actor" status="Winner">Hidden Light</film>
+        <film id="M0479" category="BestFilm" status="Winner">Final Voyage</film>
+        <film id="M0283" category="Director" status="Winner">Hidden Horizon</film>
+    </festival>
+    <festival name="Sundance" year="2000" location="UK">
+        <film id="M0004" category="Best Actor" status="Winner">Eternal River</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2014" location="France">
+        <film id="M0250" category="Best Film" status="Winner">Broken Walker</film>
+        <film id="M0260" category="BestFilm" status="Nominee">Eternal Light</film>
+        <film id="M0448" category="BestFilm" status="Nominated">Hidden Voyage</film>
+    </festival>
+    <festival name="Sundance" year="2001" location="Germany">
+        <film id="M0646" category="Best Film" status="Nominated">Crimson Voyage</film>
+        <film id="M0398" category="Director" status="Nominee">Shadow Memory</film>
+    </festival>
+    <festival name="Berlinale" year="2018" location="France">
+        <film id="M0785" category="Best Film" status="Winner">Infinite Voyage</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2024" location="Germany">
+        <film category="Director" status="Nominated">Hidden Walker</film>
+        <film id="M0949" category="Best Actor" status="Winner">Shadow Sky</film>
+        <film id="M0660" category="Director" status="Nominated">Golden Night</film>
+    </festival>
+    <festival name="Sundance" year="2009" location="États-Unis">
+        <film category="Best Actor" status="Nominated">Secret Sky</film>
+        <film id="M0262" category="Best Actor" status="Nominee">Dream Echo</film>
+    </festival>
+    <festival name="Berlinale" year="2021" location="UK">
+        <film id="M0343" category="Director" status="Winner">Infinite Echo</film>
+        <film id="M0361" category="Best Film" status="Nominee">Dream Horizon</film>
+    </festival>
+    <festival name="Venice Festival" year="2017" location="Germany">
+        <film category="Best Film" status="Nominee">Final Horizon</film>
+        <film id="M0600" category="Best Film" status="Nominated">Infinite Promise</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2009" location="United Kingdom">
+        <film category="Director" status="Winner">Secret Night</film>
+        <film id="M0735" category="Best Film" status="Nominated">Shadow Horizon</film>
+    </festival>
+    <festival name="Venice Festival" year="2003" location="USA">
+        <film category="BestFilm" status="Nominated">Shadow Echo</film>
+    </festival>
+    <festival name="Locarno" year="2023" location="Deutschland">
+        <film id="M0750" category="Director" status="Nominee">Eternal Light</film>
+        <film id="M0642" category="Director" status="Nominee">Crimson Memory</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2021" location="Germany">
+        <film category="Director" status="Nominated">Lost Echo</film>
+        <film id="M0149" category="BestFilm" status="Nominee">Eternal River</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2018" location="UK">
+        <film id="M0543" category="Director" status="Nominee">Dream City</film>
+        <film id="M0717" category="Best Film" status="Nominee">Crimson Time</film>
+        <film id="M0028" category="Director" status="Nominated">Golden Voyage</film>
+    </festival>
+    <festival name="Locarno" year="2023" location="Germany">
+        <film id="M0625" category="Director" status="Nominated">Dream Light</film>
+    </festival>
+    <festival name="Locarno" year="2012" location="UK">
+        <film category="Best Actor" status="Winner">Crimson Promise</film>
+        <film id="M0786" category="Best Actor" status="Winner">Secret Night</film>
+        <film id="M0197" category="Best Film" status="Nominated">Infinite Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2005" location="États-Unis">
+        <film category="BestFilm" status="Winner">Secret Horizon</film>
+        <film id="M0113" category="Best Actor" status="Winner">Eternal Horizon</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2019" location="Germany">
+        <film category="Best Actor" status="Nominee">Shadow Sky</film>
+    </festival>
+    <festival name="Berlinale" year="2015" location="USA">
+        <film id="M0756" category="Best Film" status="Nominee">Final Night</film>
+    </festival>
+    <festival name="Locarno" year="2015" location="Germany">
+        <film id="M0406" category="Best Actor" status="Nominated">Secret Quest</film>
+    </festival>
+    <festival name="Venice Festival" year="2001" location="UK">
+        <film id="M0840" category="Best Actor" status="Nominee">Infinite City</film>
+        <film id="M0422" category="BestFilm" status="Nominee">Hidden Horizon</film>
+        <film category="Best Actor" status="Nominated">Dream River</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2015" location="Germany">
+        <film category="Best Film" status="Nominee">Broken Promise</film>
+        <film category="Best Actor" status="Nominee">Crimson River</film>
+    </festival>
+    <festival name="Berlinale" year="2004" location="Germany">
+        <film id="M0101" category="BestFilm" status="Nominee">Broken Walker</film>
+    </festival>
+    <festival name="Sundance" year="2023" location="France">
+        <film id="M0580" category="Best Film" status="Winner">Broken City</film>
+        <film id="M0448" category="Director" status="Nominated">Hidden Voyage</film>
+        <film id="M0282" category="Best Actor" status="Nominee">Infinite Memory</film>
+    </festival>
+    <festival name="Venice Festival" year="2008" location="France">
+        <film category="BestFilm" status="Nominee">Secret Time</film>
+        <film id="M0385" category="Best Actor" status="Nominated">Golden Promise</film>
+        <film category="Director" status="Winner">Crimson Sky</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2014" location="Germany">
+        <film id="M0075" category="Best Actor" status="Nominee">Dream Walker</film>
+        <film id="M0340" category="Director" status="Nominated">Silent Quest</film>
+        <film id="M0881" category="Best Film" status="Nominee">Hidden Sky</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2023" location="Deutschland">
+        <film category="Director" status="Nominee">Shadow City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2021" location="United Kingdom">
+        <film category="BestFilm" status="Nominated">Final Promise</film>
+        <film id="M0436" category="Best Film" status="Nominee">Hidden Echo</film>
+    </festival>
+    <festival name="Locarno" year="2017" location="États-Unis">
+        <film id="M0355" category="Best Film" status="Winner">Broken Light</film>
+        <film category="Best Film" status="Nominated">Secret Night</film>
+        <film id="M0037" category="Best Film" status="Nominated">Crimson Quest</film>
+    </festival>
+    <festival name="Sundance" year="2018" location="France">
+        <film category="Best Actor" status="Nominated">Crimson Promise</film>
+        <film category="Director" status="Nominated">Silent Horizon</film>
+        <film id="M0014" category="BestFilm" status="Nominated">Crimson Echo</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2018" location="Deutschland">
+        <film category="Director" status="Nominee">Eternal Memory</film>
+        <film id="M0854" category="BestFilm" status="Winner">Silent Time</film>
+    </festival>
+    <festival name="Venice Festival" year="2024" location="Germany">
+        <film id="M0255" category="Director" status="Nominee">Silent Night</film>
+    </festival>
+    <festival name="Sundance" year="2007" location="France">
+        <film id="M0728" category="Best Actor" status="Winner">Shadow Horizon</film>
+        <film id="M0614" category="Best Film" status="Nominated">Hidden Night</film>
+        <film category="Director" status="Nominee">Silent River</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2017" location="USA">
+        <film id="M0779" category="Best Actor" status="Winner">Silent River</film>
+    </festival>
+    <festival name="Sundance" year="2021" location="États-Unis">
+        <film id="M0563" category="Director" status="Nominee">Infinite Promise</film>
+        <film id="M0593" category="Best Film" status="Nominee">Infinite Quest</film>
+    </festival>
+    <festival name="Berlinale" year="2000" location="France">
+        <film category="Director" status="Nominee">Lost Memory</film>
+    </festival>
+    <festival name="Berlinale" year="2003" location="États-Unis">
+        <film id="M0433" category="Director" status="Winner">Infinite Sky</film>
+    </festival>
+    <festival name="Berlinale" year="2019" location="USA">
+        <film id="M0355" category="Best Actor" status="Nominee">Broken Light</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2002" location="Deutschland">
+        <film id="M0789" category="Director" status="Nominee">Dream Time</film>
+        <film category="Director" status="Winner">Crimson City</film>
+    </festival>
+    <festival name="Sundance" year="2018" location="Germany">
+        <film id="M0169" category="BestFilm" status="Nominated">Crimson City</film>
+    </festival>
+    <festival name="Cannes Film Fest" year="2004" location="Deutschland">
+        <film category="Director" status="Nominee">Dream Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2022" location="United Kingdom">
+        <film id="M0054" category="Best Film" status="Nominee">Silent Sky</film>
+        <film category="Best Film" status="Winner">Broken Echo</film>
+    </festival>
+    <festival name="Sundance" year="2021" location="USA">
+        <film id="M0134" category="Best Film" status="Nominated">Infinite City</film>
+    </festival>
+    <festival name="Locarno" year="2017" location="UK">
+        <film category="Director" status="Nominated">Hidden River</film>
+        <film id="M0243" category="Best Film" status="Nominee">Eternal Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2018" location="Germany">
+        <film id="M0617" category="BestFilm" status="Nominee">Golden Walker</film>
+        <film category="Director" status="Winner">Dream Voyage</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2012" location="Germany">
+        <film category="Best Actor" status="Winner">Crimson Horizon</film>
+        <film id="M0856" category="Best Film" status="Winner">Eternal River</film>
+        <film category="Best Actor" status="Nominee">Crimson Memory</film>
+    </festival>
+    <festival name="Sundance" year="2010" location="Germany">
+        <film id="M0870" category="Best Film" status="Nominee">Infinite Promise</film>
+        <film id="M0669" category="BestFilm" status="Winner">Hidden Time</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2016" location="USA">
+        <film category="Best Film" status="Nominated">Dream Promise</film>
+    </festival>
+    <festival name="Toronto Int'l Film Fest" year="2019" location="United States">
+        <film id="M0517" category="Best Film" status="Nominated">Final Promise</film>
+    </festival>
+    <festival name="Berlinale" year="2006" location="France">
+        <film id="M0585" category="Best Actor" status="Nominee">Final Promise</film>
+    </festival>
+</festivals>
