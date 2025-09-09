@@ -1,24 +1,26 @@
+using RBZ.Projekt.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace RBZ.Projekt.Database;
 
-public class SQLiteContext : DbContext 
+public class SQLiteContext : DbContext
 {
     public SQLiteContext(DbContextOptions options) : base(options)
     {
-        DbSet<Actor> Actor {get; set;}
-        DbSet<Category> Category {get; set;}
-        DbSet<CategoryStatus> CategoryStatus {get; set;}
-        DbSet<Country> Country {get; set;}
-        DbSet<Currency> Currency {get; set;}
-        DbSet<Festival> Festival {get; set;}
-        DbSet<Genre> Genre {get; set;}
-        DbSet<Movie> Movie {get; set;}
-        DbSet<MovieActor> MovieActor {get; set;}
-        DbSet<MovieFestival> MovieFestival {get; set;}
-        DbSet<MovieGenre> MovieGenre {get; set;}
-        DbSet<Rating> Rating {get; set;}
-        DbSet<RatingInstitution> RatingInstitution {get; set;}
-        DbSet<Role> Role {get; set;}
     }
+
+    public DbSet<Actor> Actor {get; set;}
+    public DbSet<Category> Category {get; set;}
+    public DbSet<CategoryStatus> CategoryStatus {get; set;}
+    public DbSet<Country> Country {get; set;}
+    public DbSet<Currency> Currency {get; set;}
+    public DbSet<Festival> Festival {get; set;}
+    public DbSet<Genre> Genre {get; set;}
+    public DbSet<Movie> Movie {get; set;}
+    public DbSet<MovieActor> MovieActor {get; set;}
+    public DbSet<MovieFestival> MovieFestival {get; set;}
+    public DbSet<MovieGenre> MovieGenre {get; set;}
+    public DbSet<Rating> Rating {get; set;}
+    public DbSet<RatingInstitution> RatingInstitution {get; set;}
+    public DbSet<Role> Role {get; set;}
 }
