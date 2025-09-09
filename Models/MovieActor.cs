@@ -1,8 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace RBZ.Projekt.Models;
 
-public class MovieActors
+public class MovieActor
 {
-    public Movie Movie {get; set;}
-    public Actor Actor {get; set;}
-    public Role Role {get; set;}
+    [Required]
+    public Movie Movie { get; set; }
+    [Required]
+    public Actor Actor { get; set; }
+    [Required]
+    public Role Role { get; set; }
 }
