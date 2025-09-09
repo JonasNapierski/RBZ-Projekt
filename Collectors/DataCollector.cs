@@ -54,9 +54,6 @@ public class DataCollector
     {
         using (var reader = new StreamReader("../Data/finances.csv"))
         {
-            List<string> listA = new List<string>();
-            List<string> listB = new List<string>();
-           
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
@@ -67,18 +64,25 @@ public class DataCollector
                 int? budget = values[2].ToUpper()=="NULL" ? (int?)null : int.Parse(values[2]);
                 int? revenue_domestic = values[3].ToUpper() == "NULL" ? (int?)null : int.Parse(values[3]);
                 int? revenue_international = values[4].ToUpper() == "NULL" ? (int?)null : int.Parse(values[4]);
-                string currency = values[5];
+                string currencySymbol = values[5];
 
                 var movie = _context.Movie.FirstOrDefault(m => m.Id == movieId && m.Year == year);
+
+                var dbCurrency = _context.Currency.FirstOrDefault(m => m.Symbol == currencySymbol);
+
+                if (dbCurrency == null)
+                {
+                    Currency c = new Currency(currencySymbol);
+                    _context.Currency.Add(c);
+                }
 
                 if (movie != null) 
                 {
                     _context.Movie.Budget.Add(budget);
                     _context.Movie.Revenue_Domestic.Add(revenue_domestic);
                     _context.Movie.Revenue_International.Add(revenue_international);
-
                 }
-
+                 
             }
         }
         
