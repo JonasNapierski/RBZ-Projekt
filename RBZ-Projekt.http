@@ -1,6 +1,6 @@
 @RBZ_Projekt_HostAddress = http://localhost:5012
 
-GET {{RBZ_Projekt_HostAddress}}/weatherforecast/
+GET {{RBZ_Projekt_HostAddress}}
 Accept: application/json
 
 ###
