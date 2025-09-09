@@ -16,6 +16,15 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<SQLiteContext>();
+
+    // SQL-Datei einlesen
+    var sql = File.ReadAllText("/Data/movies.sql");
+    context.Database.ExecuteSqlRaw(sql);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
