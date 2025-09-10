@@ -20,10 +20,16 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<SQLiteContext>();
 
-    // SQL-Datei einlesen
+    // execute SQL file
     var sql = File.ReadAllText("/Data/movies.sql");
     context.Database.ExecuteSqlRaw(sql);
+
+    // import JSON, CSV, XML files 
+    var collector = new DataCollector(context);
+    collector.collectAndValidateImports();
 }
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

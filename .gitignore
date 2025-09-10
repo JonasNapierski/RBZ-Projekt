@@ -52,4 +52,10 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+<<<<<<< HEAD
 /.vs
+=======
+
+*.db
+Migrations/
+>>>>>>> main

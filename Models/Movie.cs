@@ -1,13 +1,26 @@
-namespace RBZ.Projekt.Models;
 
-public class Movie
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RBZ.Projekt.Models
 {
-    public int movie_id {get; set;}
-    public string title {get; set;}
-    public long? budget {get; set;}
-    public long? revenue_international {get; set;}
-    public long? revenue_domestic {get; set;}
-    public int year {get; set;}
-    public Country Country {get; set;}
+    public class Movie
+    {
+        [Key]
+        [Column("movie_id")] 
+        public int MovieId { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+
+        public long? Budget { get; set; }
+        public long? RevenueInternational { get; set; }
+        public long? RevenueDomestic { get; set; }
+        public int Year { get; set; }
+
+        public Country Country { get; set; }
+
+        public ICollection<MovieActor> MovieActors { get; set; }
+    }
 }
 
