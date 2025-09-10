@@ -9,18 +9,54 @@ public class SQLiteContext : DbContext
     {
     }
 
-    public DbSet<Actor> Actor {get; set;}
-    public DbSet<Category> Category {get; set;}
+    public required DbSet<Actor> Actors {get; set;}
+    public DbSet<Category> Categories {get; set;}
     public DbSet<CategoryStatus> CategoryStatus {get; set;}
-    public DbSet<Country> Country {get; set;}
-    public DbSet<Currency> Currency {get; set;}
-    public DbSet<Festival> Festival {get; set;}
-    public DbSet<Genre> Genre {get; set;}
-    public DbSet<Movie> Movie {get; set;}
-    public DbSet<MovieActor> MovieActor {get; set;}
-    public DbSet<MovieFestival> MovieFestival {get; set;}
-    public DbSet<MovieGenre> MovieGenre {get; set;}
+    public DbSet<Country> Countries {get; set;}
+    public DbSet<Currency> Currencies {get; set;}
+    public DbSet<Festival> Festivals {get; set;}
+    public DbSet<Genre> Genres {get; set;}
+    public DbSet<Movie> Movies {get; set;}
+    public DbSet<MovieActor> MovieActors {get; set;}
+    public DbSet<MovieFestival> MovieFestivals {get; set;}
+    public DbSet<MovieGenre> MovieGenres {get; set;}
     public DbSet<Rating> Rating {get; set;}
     public DbSet<RatingInstitution> RatingInstitution {get; set;}
     public DbSet<Role> Role {get; set;}
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<MovieActor>()
+            .HasKey(ma => new { ma.MovieId, ma.ActorId, ma.RoleId });
+
+        modelBuilder.Entity<MovieActor>()
+            .HasOne(ma => ma.Movie)
+            .WithMany(m => m.MovieActors)
+            .HasForeignKey(ma => ma.MovieId);
+
+        modelBuilder.Entity<MovieActor>()
+            .HasOne(ma => ma.Actor)
+            .WithMany(a => a.MovieActors)
+            .HasForeignKey(ma => ma.ActorId);
+
+        modelBuilder.Entity<MovieActor>()
+            .HasOne(ma => ma.Role)
+            .WithMany(r => r.MovieActors)
+            .HasForeignKey(ma => ma.RoleId);
+
+        modelBuilder.Entity<MovieGenre>()
+            .HasKey(mg => new { mg.MovieId, mg.GenreId });
+    }
+
+    public Country? GetCountry(string? name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return null;
+        }
+
+        return Countries.FirstOrDefault(e => string.Equals(e.Name.ToLower(), name.ToLower()));
+    }
 }
