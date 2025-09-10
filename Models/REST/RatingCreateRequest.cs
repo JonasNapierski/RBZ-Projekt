@@ -1,15 +1,10 @@
-using System.ComponentModel.DataAnnotations;
+namespace RBZ.Projekt.Models.REST;
 
-namespace RBZ.Projekt.Models;
-
-public class Rating
+public class RatingCreateRequest
 {
-    [Key]
-    public int rating_id { get; set; }
     public int RatingInstitutionId { get; set; }
     public RatingInstitution RatingInstitution {get; set;}
     public int MovieId { get; set; }
     public Movie Movie { get; set; }
-    public double Value { get; set; }
+    public double Rating { get; set; }
 }
-
