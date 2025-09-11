@@ -10,9 +10,9 @@ namespace RBZ.Projekt.Controllers;
 [ApiController]
 public class MovieController : ControllerBase
 {
-    private readonly SQLiteContext _context;
+    protected readonly SQLiteContext _context;
 
-    public MovieController(SQLiteContext context)
+    public MovieController(SQLiteContext context) 
     {
         _context = context;
     }
@@ -25,7 +25,7 @@ public class MovieController : ControllerBase
 
     
     [HttpGet("{id}")]
-    public ActionResult<Movie> GetMovie(int id)
+    public ActionResult<Movie> GetById(int id)
     {
         if (id <= 0)
         {
@@ -44,7 +44,6 @@ public class MovieController : ControllerBase
 
         if (country is not null)
         {
-
             Currency? currency = _context.Currencies.Find(country.CurrencyId);
 
             if (currency is not null)
@@ -65,32 +64,13 @@ public class MovieController : ControllerBase
     [HttpPost]
     public IActionResult AddMovie(MovieCreateRequest createMovie)
     {
-        Movie movie = new(){
-            RevenueDomestic = createMovie.RevenueDomestic,
-            RevenueInternational = createMovie.RevenueInternational,
-            Title = createMovie.Title,
-            Year = createMovie.Year
-        };
+        
+        Movie? movie = CreateMovie(createMovie);
 
-
-
-
-        if (string.IsNullOrWhiteSpace(createMovie.Country))
+        if (movie is null)
         {
             return BadRequest();
         }
-
-
-        Country? country = _context.Countries.FirstOrDefault(e => e.Name == createMovie.Country);
-
-        if (country is null)
-        {
-            return NotFound();
-        }
-
-
-        movie.Country = country;
-        
 
         try
         {
@@ -142,7 +122,13 @@ public class MovieController : ControllerBase
         {
             if (updateMovie is MovieCreateRequest)
             {
-                AddMovie(updateMovie);
+                movie = CreateMovie(updateMovie);
+
+                if (movie is null)
+                {
+                    return BadRequest();
+                }
+                
             }
             else
             {
@@ -151,6 +137,7 @@ public class MovieController : ControllerBase
         }
         else
         {
+            movie = new();
             Country? country = _context.GetCountry(updateMovie?.Country);
 
             if (country is null)
@@ -158,11 +145,39 @@ public class MovieController : ControllerBase
                 return NotFound();
             }
 
-
-        movie.Country = country;
+            movie.Country = country;
 
         }
 
+
+        return movie;
+    }
+    
+    private Movie? CreateMovie(MovieCreateRequest createMovie)
+    {
+        Movie movie = new(){
+            RevenueDomestic = createMovie.RevenueDomestic,
+            RevenueInternational = createMovie.RevenueInternational,
+            Title = createMovie.Title,
+            Year = createMovie.Year
+        };
+
+
+        if (string.IsNullOrWhiteSpace(createMovie.Country))
+        {
+            return null;
+        }
+
+
+        Country? country = _context.Countries.FirstOrDefault(e => e.Name == createMovie.Country);
+
+        if (country is null)
+        {
+            return null;
+        }
+
+
+        movie.Country = country;
 
         return movie;
     }

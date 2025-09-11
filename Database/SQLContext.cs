@@ -20,9 +20,9 @@ public class SQLiteContext : DbContext
     public DbSet<MovieActor> MovieActors {get; set;}
     public DbSet<MovieFestival> MovieFestivals {get; set;}
     public DbSet<MovieGenre> MovieGenres {get; set;}
-    public DbSet<Rating> Rating {get; set;}
-    public DbSet<RatingInstitution> RatingInstitution {get; set;}
-    public DbSet<Role> Role {get; set;}
+    public DbSet<Rating> Ratings {get; set;}
+    public DbSet<RatingInstitution> RatingInstitutions {get; set;}
+    public DbSet<Role> Roles {get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
