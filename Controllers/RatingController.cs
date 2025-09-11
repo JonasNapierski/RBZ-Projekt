@@ -102,40 +102,35 @@ public class RatingController : ControllerBase
         int movieId = updateRating?.MovieId ?? -1;
         int institutionId = updateRating?.RatingInstitutionId ?? -1;
         
-        if (_context.Movies.TryGet(movieId, out Movie? movie) &&
-            _context.RatingInstitutions.TryGet(institutionId, out RatingInstitution? institution))
-        {
+        Rating? rating = _context.Ratings.Find(updateRating?.RatingId);
+        bool hasCreateRating = rating is null;
 
+        if (rating is null)
+        {
+            rating = new ();
         }
 
 
-
-
-        string name = updateRating?.Name?? string.Empty;
-        Rating? rating = _context.Ratings.Find(updateRating?.RatingId);
-        if (rating is null)
+        if (_context.Movies.TryGet(movieId, out Movie? movie) &&
+                movie is not null &&
+            _context.RatingInstitutions.TryGet(institutionId, out RatingInstitution? institution) &&
+            institution is not null)
         {
-            RatingCreateRequest createRequest = new ()
-            {
-                Name = name,
-            };
+            rating.MovieId = movieId;
+            rating.Movie = movie;
+            rating.RatingInstitutionId = institutionId;
+            rating.RatingInstitution = institution;
+        }
 
-            rating = CreateRating(createRequest);
 
-            if (rating is null)
-            {
-                return BadRequest();
-            }
-                
+        if (hasCreateRating)
+        {
+            _context.Ratings.Add(rating);
         }
         else
         {
-            if (updateRating?.Name is not null)
-            {
-                rating.Name = name;
-            }
+            _context.Ratings.Update(rating);
         }
-
 
         return rating;
     }
