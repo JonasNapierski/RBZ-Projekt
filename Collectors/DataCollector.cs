@@ -5,6 +5,8 @@ using System.IO;
 using Microsoft.VisualBasic;
 using System.Linq;
 using System;
+using RBZ.Projekt.Database;
+using Newtonsoft.Json;
 
 public class DataCollector
 {
@@ -25,7 +27,7 @@ public class DataCollector
     private void importXMLData()
     {
         XmlDocument doc = new XmlDocument();
-        doc.Load("../Data/festivals.xml");
+        doc.Load("../../../Data/festivals.xml");
 
         foreach (XmlNode festivalNode in doc.DocumentElement.ChildNodes)
         {
@@ -33,7 +35,7 @@ public class DataCollector
             int year = int.Parse(festivalNode.Attributes["year"].Value);
             string location = festivalNode.Attributes["location"].Value;
 
-            var festival = _context.Festivals
+            var festival = _context.Festival
                 .FirstOrDefault(f => f.Name == festivalName && f.Year == year && f.Location == location);
 
             if (festival == null)
@@ -44,40 +46,45 @@ public class DataCollector
                     Year = year,
                     Location = location
                 };
-                _context.Festivals.Add(festival);
+                _context.Festival.Add(festival);
                 _context.SaveChanges();
             }
 
             foreach (XmlNode movieNode in festivalNode.ChildNodes)
             {
-                int movieId = convertStringIdToInt(movieNode.Attributes["id"].Value);
+                var idAttr = movieNode.Attributes["id"];
+                if (idAttr == null || string.IsNullOrEmpty(idAttr.Value))
+                {
+                    continue;
+                }
+                int movieId = convertStringIdToInt(idAttr.Value);
                 string categoryName = movieNode.Attributes["category"].Value;
                 string statusName = movieNode.Attributes["status"].Value;
 
-                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == movieId);
+                var movie = _context.Movie.FirstOrDefault(m => m.MovieId == movieId);
                 if (movie == null)
                 {
                     Console.WriteLine("XML import: movie id " + movieId + "not found in DB ");
                     continue;
                 }
 
-                var category = _context.Categories.FirstOrDefault(c => c.Name == categoryName);
+                var category = _context.Category.FirstOrDefault(c => c.Name == categoryName);
                 if (category == null)
                 {
                     category = new Category { Name = categoryName };
-                    _context.Categories.Add(category);
+                    _context.Category.Add(category);
                     _context.SaveChanges();
                 }
 
-                var status = _context.CategoryStatuses.FirstOrDefault(s => s.Name == statusName);
+                var status = _context.CategoryStatus.FirstOrDefault(s => s.Name == statusName);
                 if (status == null)
                 {
                     status = new CategoryStatus { Name = statusName };
-                    _context.CategoryStatuses.Add(status);
+                    _context.CategoryStatus.Add(status);
                     _context.SaveChanges();
                 }
 
-                if (!_context.MovieFestivals.Any(mf => mf.MovieId == movie.MovieId && mf.FestivalId == festival.Id))
+                if (!_context.MovieFestival.Any(mf => mf.Id == movie.MovieId && mf.Id == festival.Id))
                 {
                     var movieFestival = new MovieFestival
                     {
@@ -86,7 +93,7 @@ public class DataCollector
                         Category = category,
                         CategoryStatus = status
                     };
-                    _context.MovieFestivals.Add(movieFestival);
+                    _context.MovieFestival.Add(movieFestival);
                 }
             }
         }
@@ -95,8 +102,10 @@ public class DataCollector
 
     private void importCSVData()
     {
-        using (var reader = new StreamReader("../Data/finances.csv"))
+        using (var reader = new StreamReader("../../../Data/finances.csv"))
         {
+            if (!reader.EndOfStream) reader.ReadLine();
+
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
@@ -109,14 +118,14 @@ public class DataCollector
                 long? revenueInternational = values[4].ToUpper() == "NULL" ? (long?)null : long.Parse(values[4]);
                 string currencySymbol = values[5];
 
-                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == refinedId);
+                var movie = _context.Movie.FirstOrDefault(m => m.MovieId == refinedId);
                 if (movie == null) continue;
 
-                var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
+                var dbCurrency = _context.Currency.FirstOrDefault(c => c.Symbol == currencySymbol);
                 if (dbCurrency == null)
                 {
                     dbCurrency = new Currency { Symbol = currencySymbol };
-                    _context.Currencies.Add(dbCurrency);
+                    _context.Currency.Add(dbCurrency);
                 }
 
                 movie.Budget = budget;
@@ -137,7 +146,7 @@ public class DataCollector
     {
         List<Item> items;
 
-        using (StreamReader r = new StreamReader("../Data/movies.json"))
+        using (StreamReader r = new StreamReader("../../../Data/movies.json"))
         {
             string json = r.ReadToEnd();
             items = JsonConvert.DeserializeObject<List<Item>>(json);
@@ -145,9 +154,9 @@ public class DataCollector
 
         foreach (var item in items)
         {
-            int refinedId = ConvertStringIdToInt(item.id.ToString());
+            int refinedId = convertStringIdToInt(item.id.ToString());
 
-            var movie = _context.Movies
+            var movie = _context.Movie
                 .FirstOrDefault(m => m.MovieId == refinedId && m.Title == item.title);
 
             Country country = null;
@@ -171,7 +180,7 @@ public class DataCollector
                     Year = item.year,
                     Country = country
                 };
-                _context.Movies.Add(movie);
+                _context.Movie.Add(movie);
             }
 
             // cast
@@ -183,33 +192,34 @@ public class DataCollector
 
                 string roleName = castMember["role"];
 
-                var actor = _context.Actors
+                var actor = _context.Actor
                     .FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName);
                 if (actor == null)
                 {
                     actor = new Actor { FirstName = firstName, LastName = lastName };
-                    _context.Actors.Add(actor);
+                    _context.Actor.Add(actor);
+                    _context.SaveChanges();
                 }
 
-                var role = _context.Roles.FirstOrDefault(r => r.Name == roleName);
+                var role = _context.Role.FirstOrDefault(r => r.Name == roleName);
                 if (role == null)
                 {
                     role = new Role { Name = roleName };
-                    _context.Roles.Add(role);
+                    _context.Role.Add(role);
+                    _context.SaveChanges();
                 }
-
-                if (!_context.MovieActors.Any(ma =>
-                    ma.MovieId == movie.MovieId &&
-                    ma.ActorId == actor.Id &&
-                    ma.RoleId == role.Id))
+                if (!_context.ChangeTracker.Entries<MovieActor>()
+                    .Any(e => e.Entity.MovieId == movie.MovieId &&
+                    e.Entity.ActorId == actor.Id &&
+                    e.Entity.RoleId == role.Id))
                 {
                     var movieActor = new MovieActor
                     {
                         Movie = movie,
-                        Actor = actor,
+                        Actor= actor,
                         Role = role
                     };
-                    _context.MovieActors.Add(movieActor);
+                    _context.MovieActor.Add(movieActor);
                 }
             }
 
@@ -224,12 +234,11 @@ public class DataCollector
                 {
                     ratingInstitution = new RatingInstitution { Name = source };
                     _context.RatingInstitution.Add(ratingInstitution);
-                    _context.SaveChanges();
                 }
 
                 if (!_context.Rating.Any(r =>
-                    r.MovieId == movie.MovieId &&
-                    r.RatingInstitutionId == ratingInstitution.Id))
+                    r.Movie.MovieId == movie.MovieId &&
+                    r.RatingInstitution.Id == ratingInstitution.Id))
                 {
                     var rating = new Rating
                     {
@@ -237,7 +246,7 @@ public class DataCollector
                         RatingInstitution = ratingInstitution,
                         Value = value
                     };
-                    _context.MovieRatings.Add(rating);
+                    _context.Rating.Add(rating);
                 }
             }
         }
@@ -246,7 +255,7 @@ public class DataCollector
 
     public class Item
     {
-        public int id;
+        public string id;
         public string title;
         public int year;
         public List<Dictionary<string, string>> cast;

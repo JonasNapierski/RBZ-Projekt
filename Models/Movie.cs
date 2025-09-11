@@ -18,7 +18,8 @@ namespace RBZ.Projekt.Models
         public long? RevenueDomestic { get; set; }
         public int Year { get; set; }
 
-        public Country Country { get; set; }
+        public int? CountryId { get; set; }
+        public Country? Country { get; set; }
 
         public ICollection<MovieActor> MovieActors { get; set; }
     }
