@@ -21,6 +21,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// string _base_data_folder = "../../../Data/";
+string _base_data_folder = "Data/";
+
 using (var scope = app.Services.CreateScope())
 {
     var newContext = scope.ServiceProvider.GetRequiredService<SQLiteContext>();
@@ -42,11 +45,11 @@ using (var scope = app.Services.CreateScope())
     newContext.Database.EnsureCreated();
 
     //migrate from old to new DB
-    var migrator = new dbMigration(newContext, oldContext);
+    var migrator = new DatabaseMigration(newContext, oldContext);
     migrator.translateOldDbDataToNew();
 
     // import JSON, CSV, XML files 
-    var collector = new DataCollector(newContext);
+    var collector = new DataCollector(newContext, _base_data_folder);
     collector.collectAndValidateImports();
 }
 

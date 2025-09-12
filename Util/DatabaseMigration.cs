@@ -3,12 +3,12 @@ using RBZ.Projekt.Models;
 
 namespace RBZ.Projekt.Utils;
 
-public class dbMigration
+public class DatabaseMigration
 {
 	private readonly SQLiteContext _context;
 	private readonly OldDbContext _oldContext;
 
-	public dbMigration(SQLiteContext context, OldDbContext oldContext)
+	public DatabaseMigration(SQLiteContext context, OldDbContext oldContext)
 	{
 		_context = context;
 		_oldContext = oldContext;
@@ -21,7 +21,7 @@ public class dbMigration
 		{
             if (!_context.Movies.Any(m => m.MovieId == oldMovie.Id))
             {
-                _context.Movies.Add(new Movie
+                _context.Movies.Add(new Models.Movie
                 {
                     MovieId = oldMovie.Id,
                     Title = oldMovie.Title,

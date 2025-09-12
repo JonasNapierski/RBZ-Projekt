@@ -6,10 +6,12 @@ using Newtonsoft.Json;
 public class DataCollector
 {
     private readonly SQLiteContext _context;
+    private readonly string _base_data_folder;
 
-    public DataCollector(SQLiteContext context)
+    public DataCollector(SQLiteContext context, string data_folder)
     {
         _context = context;
+        _base_data_folder = data_folder;
     }
 
     public void collectAndValidateImports()
@@ -22,7 +24,7 @@ public class DataCollector
     private void importXMLData()
     {
         XmlDocument doc = new XmlDocument();
-        doc.Load("Data/festivals.xml");
+        doc.Load(_base_data_folder + "festivals.xml");
 
         foreach (XmlNode festivalNode in doc.DocumentElement.ChildNodes)
         {
@@ -97,7 +99,7 @@ public class DataCollector
 
     private void importCSVData()
     {
-        using (var reader = new StreamReader("Data/finances.csv"))
+        using (var reader = new StreamReader(_base_data_folder + "finances.csv"))
         {
             if (!reader.EndOfStream) reader.ReadLine();
 
@@ -121,6 +123,7 @@ public class DataCollector
                 {
                     dbCurrency = new Currency { Symbol = currencySymbol };
                     _context.Currencies.Add(dbCurrency);
+                    _context.SaveChanges();
                 }
 
                 movie.Budget = budget;
@@ -141,10 +144,10 @@ public class DataCollector
     {
         List<Item> items;
 
-        using (StreamReader r = new StreamReader("Data/movies.json"))
+        using (StreamReader r = new StreamReader(_base_data_folder + "movies.json"))
         {
             string json = r.ReadToEnd();
-            items = JsonConvert.DeserializeObject<List<Item>>(json);
+            items = JsonConvert.DeserializeObject<List<Item>>(json) ?? new List<Item>();
         }
 
         foreach (var item in items)
@@ -154,7 +157,7 @@ public class DataCollector
             var movie = _context.Movies
                 .FirstOrDefault(m => m.MovieId == refinedId && m.Title == item.title);
 
-            Country country = null;
+            Country? country = null;
             if (!string.IsNullOrEmpty(item.country))
             {
                 country = _context.Countries.FirstOrDefault(c => c.Name == item.country);
@@ -168,7 +171,7 @@ public class DataCollector
 
             if (movie == null)
             {
-                movie = new Movie
+                movie = new RBZ.Projekt.Models.Movie
                 {
                     MovieId = refinedId,
                     Title = item.title,
@@ -242,6 +245,7 @@ public class DataCollector
                         Value = value
                     };
                     _context.Ratings.Add(rating);
+                    _context.SaveChanges();
                 }
             }
         }

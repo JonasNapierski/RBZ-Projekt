@@ -16,7 +16,7 @@ public class SQLiteContext : DbContext
     public DbSet<Currency> Currencies { get; set; }
     public DbSet<Festival> Festivals { get; set; }
     public DbSet<Genre> Genres { get; set; }
-    public DbSet<Movie> Movies { get; set; }
+    public DbSet<Models.Movie> Movies { get; set; }
     public DbSet<MovieActor> MovieActors { get; set; }
     public DbSet<MovieFestival> MovieFestivals { get; set; }
     public DbSet<MovieGenre> MovieGenres { get; set; }

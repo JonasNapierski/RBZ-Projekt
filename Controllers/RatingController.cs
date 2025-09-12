@@ -111,7 +111,7 @@ public class RatingController : ControllerBase
         }
 
 
-        if (_context.Movies.TryGet(movieId, out Movie? movie) &&
+        if (_context.Movies.TryGet(movieId, out Models.Movie? movie) &&
                 movie is not null &&
             _context.RatingInstitutions.TryGet(institutionId, out RatingInstitution? institution) &&
             institution is not null)
@@ -140,7 +140,7 @@ public class RatingController : ControllerBase
 
         Rating? rating = null;
 
-        if (_context.Movies.TryGet(createRating.MovieId , out Movie? movie) && movie is not null &&
+        if (_context.Movies.TryGet(createRating.MovieId , out Models.Movie? movie) && movie is not null &&
             _context.RatingInstitutions.TryGet(createRating.RatingInstitutionId, out RatingInstitution? institution) && institution is not null)
         {
             rating = new(){

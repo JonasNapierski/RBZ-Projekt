@@ -111,7 +111,7 @@ public class FestivalController : ControllerBase
         }
 
 
-        if (_context.Movies.TryGet(movieId, out Movie? movie) &&
+        if (_context.Movies.TryGet(movieId, out Models.Movie? movie) &&
                 movie is not null && updateFestival?.MovieId > 0)
         {
                 festival.MovieId = updateFestival.MovieId;
@@ -151,7 +151,7 @@ public class FestivalController : ControllerBase
 
         Festival? festival = null;
 
-        if (_context.Movies.TryGet(createFestival.MovieId , out Movie? movie) && movie is not null)
+        if (_context.Movies.TryGet(createFestival.MovieId , out Models.Movie? movie) && movie is not null)
         {
             festival = new(){
                 Year = createFestival.Year,
