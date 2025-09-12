@@ -5,24 +5,24 @@ namespace RBZ.Projekt.Database;
 
 public class SQLiteContext : DbContext
 {
-    public SQLiteContext(DbContextOptions options) : base(options)
+    public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options)
     {
     }
 
-    public required DbSet<Actor> Actors {get; set;}
-    public DbSet<Category> Categories {get; set;}
-    public DbSet<CategoryStatus> CategoryStatus {get; set;}
-    public DbSet<Country> Countries {get; set;}
-    public DbSet<Currency> Currencies {get; set;}
-    public DbSet<Festival> Festivals {get; set;}
-    public DbSet<Genre> Genres {get; set;}
-    public DbSet<Movie> Movies {get; set;}
-    public DbSet<MovieActor> MovieActors {get; set;}
-    public DbSet<MovieFestival> MovieFestivals {get; set;}
-    public DbSet<MovieGenre> MovieGenres {get; set;}
-    public DbSet<Rating> Ratings {get; set;}
-    public DbSet<RatingInstitution> RatingInstitutions {get; set;}
-    public DbSet<Role> Roles {get; set;}
+    public DbSet<Actor> Actors { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<CategoryStatus> CategoryStatus { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<Currency> Currencies { get; set; }
+    public DbSet<Festival> Festivals { get; set; }
+    public DbSet<Genre> Genres { get; set; }
+    public DbSet<Movie> Movies { get; set; }
+    public DbSet<MovieActor> MovieActors { get; set; }
+    public DbSet<MovieFestival> MovieFestivals { get; set; }
+    public DbSet<MovieGenre> MovieGenres { get; set; }
+    public DbSet<Rating> Ratings { get; set; }
+    public DbSet<RatingInstitution> RatingInstitutions { get; set; }
+    public DbSet<Role> Roles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -30,21 +30,6 @@ public class SQLiteContext : DbContext
 
         modelBuilder.Entity<MovieActor>()
             .HasKey(ma => new { ma.MovieId, ma.ActorId, ma.RoleId });
-
-        modelBuilder.Entity<MovieActor>()
-            .HasOne(ma => ma.Movie)
-            .WithMany(m => m.MovieActors)
-            .HasForeignKey(ma => ma.MovieId);
-
-        modelBuilder.Entity<MovieActor>()
-            .HasOne(ma => ma.Actor)
-            .WithMany(a => a.MovieActors)
-            .HasForeignKey(ma => ma.ActorId);
-
-        modelBuilder.Entity<MovieActor>()
-            .HasOne(ma => ma.Role)
-            .WithMany(r => r.MovieActors)
-            .HasForeignKey(ma => ma.RoleId);
 
         modelBuilder.Entity<MovieGenre>()
             .HasKey(mg => new { mg.MovieId, mg.GenreId });

@@ -757,7 +757,7 @@ INSERT INTO MovieActors (movie_id, actor_id, role) VALUES (746, 192, 'Sidekick')
 CREATE TABLE Genres (genre_id, genre_name);
 INSERT INTO Genres (genre_id, genre_name) VALUES (1, 'Drama');
 INSERT INTO Genres (genre_id, genre_name) VALUES (2, 'Sci-Fi');
- INSERT INTO Genres (genre_id, genre_name) VALUES (3, 'Action');
+ INSERT INTO Genres (genre_id, genre_name) VALUES (3, 'Action');
 INSERT INTO Genres (genre_id, genre_name) VALUES (4, 'Comedy');
 INSERT INTO Genres (genre_id, genre_name) VALUES (5, 'Thriller');
 INSERT INTO Genres (genre_id, genre_name) VALUES (6, 'Romance');
