@@ -21,62 +21,74 @@ public class dbMigration
 		//movies
 		foreach (var oldMovie in _oldContext.Movies.ToList())
 		{
-			_context.Movie.Add(new Movie
-			{
-				MovieId = oldMovie.Id,
-				Title = oldMovie.Title,
-				Year = oldMovie.Year
-			});
-		}
+            if (!_context.Movies.Any(m => m.MovieId == oldMovie.Id))
+            {
+                _context.Movies.Add(new Movie
+                {
+                    MovieId = oldMovie.Id,
+                    Title = oldMovie.Title,
+                    Year = oldMovie.Year
+                });
+            }
+        }
 		_context.SaveChanges();
 
 		//actors
 		foreach (var oldActor in _oldContext.Actors.ToList())
 		{
-			string[] parts = oldActor.Name.Split(' ');
-			_context.Actor.Add(new Actor
-			{
-				Id = oldActor.Id,
-				FirstName = parts[0],
-				LastName = parts[1]
-			});
+            if (!_context.Actors.Any(a => a.Id == oldActor.Id))
+            { 
+				string[] parts = oldActor.Name.Split(' ');
+				_context.Actors.Add(new Actor
+				{
+					Id = oldActor.Id,
+					FirstName = parts[0],
+					LastName = parts[1]
+				});
+			}
 		}
 		_context.SaveChanges();
 
 		//genres
 		foreach (var oldGenre in _oldContext.Genres.ToList())
 		{
-			_context.Genre.Add(new Genre
-			{
-				Id = oldGenre.Id,
-				Name = oldGenre.Name
-			});
-		}
-		_context.SaveChanges();
-
-		//movieGenre
-		foreach (var oldMovieGenre in _oldContext.MovieGenres.ToList())
-		{
-			bool movieExists = _context.Movie.Any(m => m.MovieId == oldMovieGenre.MovieId);
-			bool genreExists = _context.Genre.Any(g => g.Id == oldMovieGenre.GenreId);
-
-			if (movieExists && genreExists)
-			{
-				_context.MovieGenre.Add(new MovieGenre
+            if (!_context.Genres.Any(g => g.Id == oldGenre.Id))
+            { 
+				_context.Genres.Add(new Genre
 				{
-					MovieId = oldMovieGenre.MovieId,
-					GenreId = oldMovieGenre.GenreId
+					Id = oldGenre.Id,
+					Name = oldGenre.Name
 				});
 			}
-			else
-			{
-				Console.WriteLine($"Skipped MovieGenre: MovieId={oldMovieGenre.MovieId}, GenreId={oldMovieGenre.GenreId}");
-			}
 		}
 		_context.SaveChanges();
 
-		//roles
-		Dictionary<string, int> roles = new Dictionary<string, int>();
+        //movieGenre
+        foreach (var oldMovieGenre in _oldContext.MovieGenres.ToList())
+        {
+            if (!_context.Movies.Any(m => m.MovieId == oldMovieGenre.MovieId) ||
+                !_context.Genres.Any(g => g.Id == oldMovieGenre.GenreId))
+            {
+                Console.WriteLine($"Skipped MovieGenre: MovieId={oldMovieGenre.MovieId}, GenreId={oldMovieGenre.GenreId}");
+                continue;
+            }
+
+            if (_context.MovieGenres.Local.Any(mg => mg.MovieId == oldMovieGenre.MovieId && mg.GenreId == oldMovieGenre.GenreId))
+            {
+                continue;
+            }
+
+            _context.MovieGenres.Add(new MovieGenre
+            {
+                MovieId = oldMovieGenre.MovieId,
+                GenreId = oldMovieGenre.GenreId
+            });
+        }
+
+        _context.SaveChanges();
+
+        //roles
+        Dictionary<string, int> roles = new Dictionary<string, int>();
 		int rolesCounter = 1;
 
 		foreach (var oldMovieActor in _oldContext.MovieActors)
@@ -84,7 +96,7 @@ public class dbMigration
 			if (!roles.ContainsKey(oldMovieActor.Role))
 			{
 				roles.Add(oldMovieActor.Role, rolesCounter);
-				_context.Role.Add(new Role
+				_context.Roles.Add(new Role
 				{
 					Id = rolesCounter,
 					Name = oldMovieActor.Role
@@ -94,26 +106,34 @@ public class dbMigration
 		}
 		_context.SaveChanges();
 
-		//movieActor
-		foreach (var oldMovieActor in _oldContext.MovieActors)
-		{
-			bool movieExists = _context.Movie.Any(m => m.MovieId == oldMovieActor.MovieId);
-			bool actorExists = _context.Actor.Any(a => a.Id == oldMovieActor.ActorId);
+        //movieActor
+        var newMovieActors = new List<MovieActor>();
 
-			if (movieExists && actorExists)
-			{
-				_context.MovieActor.Add(new MovieActor
-				{
-					MovieId = oldMovieActor.MovieId,
-					ActorId = oldMovieActor.ActorId,
-					RoleId = roles[oldMovieActor.Role]
-				});
-			}
-			else
-			{
-				Console.WriteLine($"Skipped MovieActor: MovieId={oldMovieActor.MovieId}, ActorId={oldMovieActor.ActorId}");
-			}
-		}
-		_context.SaveChanges();
-	}
+        foreach (var oldMovieActor in _oldContext.MovieActors.ToList())
+        {
+            bool movieExists = _context.Movies.Any(m => m.MovieId == oldMovieActor.MovieId);
+            bool actorExists = _context.Actors.Any(a => a.Id == oldMovieActor.ActorId);
+
+            if (movieExists && actorExists)
+            {
+                bool alreadyTracked = _context.MovieActors.Local
+                    .Any(ma => ma.MovieId == oldMovieActor.MovieId &&
+                               ma.ActorId == oldMovieActor.ActorId &&
+                               ma.RoleId == roles[oldMovieActor.Role]);
+
+                if (alreadyTracked)
+                    continue;
+
+                newMovieActors.Add(new MovieActor
+                {
+                    MovieId = oldMovieActor.MovieId,
+                    ActorId = oldMovieActor.ActorId,
+                    RoleId = roles[oldMovieActor.Role]
+                });
+            }
+        }
+
+        _context.MovieActors.AddRange(newMovieActors);
+        _context.SaveChanges();
+    }
 }

@@ -19,9 +19,10 @@ namespace RBZ.Projekt.Models
         public int Year { get; set; }
 
         public int? CountryId { get; set; }
-        public Country? Country { get; set; }
 
-        public ICollection<MovieActor> MovieActors { get; set; }
+        public Country Country { get; set; }
+
+        public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
     }
 }
 

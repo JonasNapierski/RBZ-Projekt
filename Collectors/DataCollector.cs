@@ -35,7 +35,7 @@ public class DataCollector
             int year = int.Parse(festivalNode.Attributes["year"].Value);
             string location = festivalNode.Attributes["location"].Value;
 
-            var festival = _context.Festival
+            var festival = _context.Festivals
                 .FirstOrDefault(f => f.Name == festivalName && f.Year == year && f.Location == location);
 
             if (festival == null)
@@ -46,7 +46,7 @@ public class DataCollector
                     Year = year,
                     Location = location
                 };
-                _context.Festival.Add(festival);
+                _context.Festivals.Add(festival);
                 _context.SaveChanges();
             }
 
@@ -61,18 +61,18 @@ public class DataCollector
                 string categoryName = movieNode.Attributes["category"].Value;
                 string statusName = movieNode.Attributes["status"].Value;
 
-                var movie = _context.Movie.FirstOrDefault(m => m.MovieId == movieId);
+                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == movieId);
                 if (movie == null)
                 {
                     Console.WriteLine("XML import: movie id " + movieId + "not found in DB ");
                     continue;
                 }
 
-                var category = _context.Category.FirstOrDefault(c => c.Name == categoryName);
+                var category = _context.Categories.FirstOrDefault(c => c.Name == categoryName);
                 if (category == null)
                 {
                     category = new Category { Name = categoryName };
-                    _context.Category.Add(category);
+                    _context.Categories.Add(category);
                     _context.SaveChanges();
                 }
 
@@ -84,7 +84,7 @@ public class DataCollector
                     _context.SaveChanges();
                 }
 
-                if (!_context.MovieFestival.Any(mf => mf.Id == movie.MovieId && mf.Id == festival.Id))
+                if (!_context.MovieFestivals.Any(mf => mf.Id == movie.MovieId && mf.Id == festival.Id))
                 {
                     var movieFestival = new MovieFestival
                     {
@@ -93,7 +93,7 @@ public class DataCollector
                         Category = category,
                         CategoryStatus = status
                     };
-                    _context.MovieFestival.Add(movieFestival);
+                    _context.MovieFestivals.Add(movieFestival);
                 }
             }
         }
@@ -118,14 +118,14 @@ public class DataCollector
                 long? revenueInternational = values[4].ToUpper() == "NULL" ? (long?)null : long.Parse(values[4]);
                 string currencySymbol = values[5];
 
-                var movie = _context.Movie.FirstOrDefault(m => m.MovieId == refinedId);
+                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == refinedId);
                 if (movie == null) continue;
 
-                var dbCurrency = _context.Currency.FirstOrDefault(c => c.Symbol == currencySymbol);
+                var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
                 if (dbCurrency == null)
                 {
                     dbCurrency = new Currency { Symbol = currencySymbol };
-                    _context.Currency.Add(dbCurrency);
+                    _context.Currencies.Add(dbCurrency);
                 }
 
                 movie.Budget = budget;
@@ -156,17 +156,17 @@ public class DataCollector
         {
             int refinedId = convertStringIdToInt(item.id.ToString());
 
-            var movie = _context.Movie
+            var movie = _context.Movies
                 .FirstOrDefault(m => m.MovieId == refinedId && m.Title == item.title);
 
             Country country = null;
             if (!string.IsNullOrEmpty(item.country))
             {
-                country = _context.Country.FirstOrDefault(c => c.Name == item.country);
+                country = _context.Countries.FirstOrDefault(c => c.Name == item.country);
                 if (country == null)
                 {
                     country = new Country { Name = item.country };
-                    _context.Country.Add(country);
+                    _context.Countries.Add(country);
                     _context.SaveChanges();
                 }
             }
@@ -180,7 +180,7 @@ public class DataCollector
                     Year = item.year,
                     Country = country
                 };
-                _context.Movie.Add(movie);
+                _context.Movies.Add(movie);
             }
 
             // cast
@@ -192,20 +192,20 @@ public class DataCollector
 
                 string roleName = castMember["role"];
 
-                var actor = _context.Actor
+                var actor = _context.Actors
                     .FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName);
                 if (actor == null)
                 {
                     actor = new Actor { FirstName = firstName, LastName = lastName };
-                    _context.Actor.Add(actor);
+                    _context.Actors.Add(actor);
                     _context.SaveChanges();
                 }
 
-                var role = _context.Role.FirstOrDefault(r => r.Name == roleName);
+                var role = _context.Roles.FirstOrDefault(r => r.Name == roleName);
                 if (role == null)
                 {
                     role = new Role { Name = roleName };
-                    _context.Role.Add(role);
+                    _context.Roles.Add(role);
                     _context.SaveChanges();
                 }
                 if (!_context.ChangeTracker.Entries<MovieActor>()
@@ -219,7 +219,7 @@ public class DataCollector
                         Actor= actor,
                         Role = role
                     };
-                    _context.MovieActor.Add(movieActor);
+                    _context.MovieActors.Add(movieActor);
                 }
             }
 
@@ -229,14 +229,14 @@ public class DataCollector
                 string source = pair.Key;
                 double value = pair.Value;
 
-                var ratingInstitution = _context.RatingInstitution.FirstOrDefault(ri => ri.Name == source);
+                var ratingInstitution = _context.RatingInstitutions.FirstOrDefault(ri => ri.Name == source);
                 if (ratingInstitution == null)
                 {
                     ratingInstitution = new RatingInstitution { Name = source };
-                    _context.RatingInstitution.Add(ratingInstitution);
+                    _context.RatingInstitutions.Add(ratingInstitution);
                 }
 
-                if (!_context.Rating.Any(r =>
+                if (!_context.Ratings.Any(r =>
                     r.Movie.MovieId == movie.MovieId &&
                     r.RatingInstitution.Id == ratingInstitution.Id))
                 {
@@ -246,7 +246,7 @@ public class DataCollector
                         RatingInstitution = ratingInstitution,
                         Value = value
                     };
-                    _context.Rating.Add(rating);
+                    _context.Ratings.Add(rating);
                 }
             }
         }
