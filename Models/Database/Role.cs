@@ -10,7 +10,7 @@ namespace RBZ.Projekt.Models
         [Required]
         public string Name { get; set; } = string.Empty;
 
-        public ICollection<MovieActor> MovieActors { get; set; } = new MovieActor[0];
+        public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
     }
 }
 
