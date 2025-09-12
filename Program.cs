@@ -21,8 +21,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// string _base_data_folder = "../../../Data/";
-string _base_data_folder = "Data/";
+string _base_data_folder = "../../../Data/";
+//string _base_data_folder = "Data/";
 
 using (var scope = app.Services.CreateScope())
 {
