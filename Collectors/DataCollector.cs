@@ -44,7 +44,7 @@ public class DataCollector
                 {
                     Name = festivalName,
                     Year = year,
-                    Location = location
+                    Location = location,
                 };
                 _context.Festivals.Add(festival);
                 _context.SaveChanges();
