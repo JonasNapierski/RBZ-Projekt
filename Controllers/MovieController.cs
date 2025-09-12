@@ -53,10 +53,10 @@ public class MovieController : ControllerBase
             movie.Country = country;
         }
 
-        if (movie.MovieActors is null)
-        {
-            movie.MovieActors = [];
-        }
+        //if (movie.MovieActors is null)
+        //{
+        //    movie.MovieActors = [];
+        //}
 
         return movie;
     }

@@ -22,7 +22,7 @@ namespace RBZ.Projekt.Models
 
         public Country Country { get; set; }
 
-        public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
+        //public ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
     }
 }
 
