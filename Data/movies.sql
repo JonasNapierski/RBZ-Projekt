@@ -1,6 +1,3 @@
-CREATE TABLE Movies (movie_id, title, year);
-
-
 INSERT INTO Movies (movie_id, title, year) VALUES (737, 'Shadow Quest', 2023);
 INSERT INTO Movies (movie_id, title, year) VALUES (928, 'Shadow Walker', 1986);
 INSERT INTO Movies (movie_id, title, year) VALUES (721, 'Lost Sky', 2017);
@@ -252,7 +249,6 @@ INSERT INTO Movies (movie_id, title, year) VALUES (598, 'Secret River', 2015);
 INSERT INTO Movies (movie_id, title, year) VALUES (382, 'Hidden Sky', 1998);
 INSERT INTO Movies (movie_id, title, year) VALUES (154, 'Final Voyage', 2009);
 
-CREATE TABLE Directors (director_id, name);
 
 INSERT INTO Directors (director_id, name) VALUES (1, 'Anna Khan');
 INSERT INTO Directors (director_id, name) VALUES (2, 'Thomas Anderson');
@@ -297,7 +293,6 @@ INSERT INTO Directors (director_id, name) VALUES (40, 'Sophia Garcia');
 
 
 
-CREATE TABLE Actors (actor_id, name);
 INSERT INTO Actors (actor_id, name) VALUES (1, 'Emma Müller');
 INSERT INTO Actors (actor_id, name) VALUES (2, 'Oliver Wilson');
 INSERT INTO Actors (actor_id, name) VALUES (3, 'Lena Wilson');
@@ -500,7 +495,6 @@ INSERT INTO Actors (actor_id, name) VALUES (199, 'Ava Monroe');
 INSERT INTO Actors (actor_id, name) VALUES (200, 'A. Smith');
 
 
-CREATE TABLE MovieActors (movie_id, actor_id, role);
 
 INSERT INTO MovieActors (movie_id, actor_id, role) VALUES (945, 30, 'Sidekick');
 INSERT INTO MovieActors (movie_id, actor_id, role) VALUES (265, 7, 'Narrator');
@@ -754,16 +748,14 @@ INSERT INTO MovieActors (movie_id, actor_id, role) VALUES (570, 35, 'Narrator');
 INSERT INTO MovieActors (movie_id, actor_id, role) VALUES (746, 192, 'Sidekick');
 
 
-CREATE TABLE Genres (genre_id, genre_name);
 INSERT INTO Genres (genre_id, genre_name) VALUES (1, 'Drama');
 INSERT INTO Genres (genre_id, genre_name) VALUES (2, 'Sci-Fi');
- INSERT INTO Genres (genre_id, genre_name) VALUES (3, 'Action');
+INSERT INTO Genres (genre_id, genre_name) VALUES (3, 'Action');
 INSERT INTO Genres (genre_id, genre_name) VALUES (4, 'Comedy');
 INSERT INTO Genres (genre_id, genre_name) VALUES (5, 'Thriller');
 INSERT INTO Genres (genre_id, genre_name) VALUES (6, 'Romance');
 
 
-CREATE TABLE MovieGenres (movie_id, genre_id);
 INSERT INTO MovieGenres (movie_id, genre_id) VALUES (361, 6);
 INSERT INTO MovieGenres (movie_id, genre_id) VALUES (324, 4);
 INSERT INTO MovieGenres (movie_id, genre_id) VALUES (906, 5);

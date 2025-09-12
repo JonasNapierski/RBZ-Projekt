@@ -10,7 +10,10 @@ builder.Services.AddDbContext<SQLiteContext>(options =>
 );
 
 builder.Services.AddDbContext<OldDbContext>(options =>
-    options.UseSqlite("Data Source=old.db"));
+    options.UseSqlite("Data Source=Migration.db")
+);
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -27,11 +30,12 @@ using (var scope = app.Services.CreateScope())
     var sql = File.ReadAllText("Data/movies.sql");
 
     sql = sql.Replace(
-    "INSERT INTO MovieGenres",
-    "INSERT OR IGNORE INTO MovieGenres"
+        "INSERT INTO MovieGenres",
+        "INSERT OR IGNORE INTO MovieGenres"
     );
 
     oldContext.Database.EnsureDeleted();
+    oldContext.Database.EnsureCreated();
     oldContext.Database.ExecuteSqlRaw(sql);
 
     newContext.Database.EnsureDeleted();

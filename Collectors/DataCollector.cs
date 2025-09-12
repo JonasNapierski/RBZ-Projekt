@@ -22,7 +22,7 @@ public class DataCollector
     private void importXMLData()
     {
         XmlDocument doc = new XmlDocument();
-        doc.Load("../../../Data/festivals.xml");
+        doc.Load("Data/festivals.xml");
 
         foreach (XmlNode festivalNode in doc.DocumentElement.ChildNodes)
         {
@@ -97,7 +97,7 @@ public class DataCollector
 
     private void importCSVData()
     {
-        using (var reader = new StreamReader("../../../Data/finances.csv"))
+        using (var reader = new StreamReader("Data/finances.csv"))
         {
             if (!reader.EndOfStream) reader.ReadLine();
 
@@ -141,7 +141,7 @@ public class DataCollector
     {
         List<Item> items;
 
-        using (StreamReader r = new StreamReader("../../../Data/movies.json"))
+        using (StreamReader r = new StreamReader("Data/movies.json"))
         {
             string json = r.ReadToEnd();
             items = JsonConvert.DeserializeObject<List<Item>>(json);

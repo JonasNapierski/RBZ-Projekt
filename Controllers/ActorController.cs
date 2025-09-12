@@ -20,7 +20,7 @@ public class ActorController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Actor>>> GetActors()
     {
-        return await _context.Actors.Include(a => a.MovieActors).ToListAsync();
+        return await _context.Actors.ToListAsync();
     }
 
     
@@ -38,13 +38,6 @@ public class ActorController : ControllerBase
         if (actor is null)
         {
             return NotFound();
-        }
-
-
-
-        if (actor.MovieActors is null)
-        {
-            actor.MovieActors = [];
         }
 
         return actor;

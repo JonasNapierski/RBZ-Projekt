@@ -1,6 +1,7 @@
-using System.Security.Principal;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RBZ.Projekt.Database;
 
 public class OldDbContext : DbContext
 {
