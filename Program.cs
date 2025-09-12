@@ -1,4 +1,5 @@
 using RBZ.Projekt.Database;
+using RBZ.Projekt.Utils;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +24,7 @@ using (var scope = app.Services.CreateScope())
     var oldContext = scope.ServiceProvider.GetRequiredService<OldDbContext>();
 
     // import SQL into OldDb
-    var sql = File.ReadAllText("../../../Data/movies.sql");
+    var sql = File.ReadAllText("Data/movies.sql");
 
     sql = sql.Replace(
     "INSERT INTO MovieGenres",

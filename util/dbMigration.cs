@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Security.Principal;
-using System.Web;
 using RBZ.Projekt.Database;
 using RBZ.Projekt.Models;
+
+namespace RBZ.Projekt.Utils;
 
 public class dbMigration
 {
