@@ -131,15 +131,19 @@ public class DataCollector
                 movie.RevenueDomestic = revenueDomestic;
                 movie.RevenueInternational = revenueInternational;
 
-                // WICHTIG: Country mit Currency verbinden
-                if (movie.Country != null && movie.Country.CurrencyId == null)
+                // Country mit Currency verbinden
+                if (movie.Country != null)
                 {
-                    movie.Country.Currency = dbCurrency;
-                }
-                else if (movie.Country != null && movie.Country.CurrencyId != dbCurrency.Id)
-                {
-                    // Falls Konflikt -> nur setzen, wenn noch kein Currency hinterlegt
-                    movie.Country.Currency = dbCurrency;
+                    if (movie.Country.CurrencyId == null)
+                    {
+                        // Erstzuweisung: Currency setzen
+                        movie.Country.Currency = dbCurrency;
+                    }
+                    else if (movie.Country.CurrencyId != dbCurrency.Id)
+                    {
+                        Console.WriteLine($"Währungs-Konflikt für Country={movie.Country.Name}: "
+                            + $"bereits {movie.Country.Currency.Symbol}, neuer Wert wäre {dbCurrency.Symbol}");
+                    }
                 }
             }
 
@@ -176,6 +180,20 @@ public class DataCollector
                 if (country == null)
                 {
                     country = new Country { Name = normalizedName };
+
+                    if (_countryCurrencyMap.TryGetValue(normalizedName, out var currencySymbol))
+                    {
+                        var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
+                        if (dbCurrency == null)
+                        {
+                            dbCurrency = new Currency { Symbol = currencySymbol };
+                            _context.Currencies.Add(dbCurrency);
+                            _context.SaveChanges();
+                        }
+
+                        country.Currency = dbCurrency;
+                    }
+
                     _context.Countries.Add(country);
                     _context.SaveChanges();
                 }
@@ -292,4 +310,11 @@ public class DataCollector
 
     };
 
+    private static readonly Dictionary<string, string> _countryCurrencyMap = new()
+{
+    { "Germany", "EUR" },
+    { "United Kingdom", "GBP" },
+    { "France", "EUR" },
+    { "United States", "USD" }
+};
 }
