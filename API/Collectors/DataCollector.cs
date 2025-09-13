@@ -118,6 +118,7 @@ public class DataCollector
                 var movie = _context.Movies.FirstOrDefault(m => m.MovieId == refinedId);
                 if (movie == null) continue;
 
+                // Currency holen oder neu anlegen
                 var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
                 if (dbCurrency == null)
                 {
@@ -130,9 +131,19 @@ public class DataCollector
                 movie.RevenueDomestic = revenueDomestic;
                 movie.RevenueInternational = revenueInternational;
 
-                if (movie.Country != null && movie.Country.Currency == null)
+                // Country mit Currency verbinden
+                if (movie.Country != null)
                 {
-                    movie.Country.Currency = dbCurrency;
+                    if (movie.Country.CurrencyId == null)
+                    {
+                        // Erstzuweisung: Currency setzen
+                        movie.Country.Currency = dbCurrency;
+                    }
+                    else if (movie.Country.CurrencyId != dbCurrency.Id)
+                    {
+                        Console.WriteLine($"Währungs-Konflikt für Country={movie.Country.Name}: "
+                            + $"bereits {movie.Country.Currency.Symbol}, neuer Wert wäre {dbCurrency.Symbol}");
+                    }
                 }
             }
 
@@ -150,6 +161,7 @@ public class DataCollector
             items = JsonConvert.DeserializeObject<List<Item>>(json) ?? new List<Item>();
         }
 
+        var currencyDict = new Dictionary<string, string>();
         foreach (var item in items)
         {
             int refinedId = convertStringIdToInt(item.id.ToString());
@@ -158,12 +170,30 @@ public class DataCollector
                 .FirstOrDefault(m => m.MovieId == refinedId && m.Title == item.title);
 
             Country? country = null;
-            if (!string.IsNullOrEmpty(item.country))
+            if (!string.IsNullOrEmpty(item.production_country))
             {
-                country = _context.Countries.FirstOrDefault(c => c.Name == item.country);
+                string normalizedName = _countryNormalization.ContainsKey(item.production_country)
+                    ? _countryNormalization[item.production_country]
+                    : item.production_country;
+
+                country = _context.Countries.FirstOrDefault(c => c.Name == normalizedName);
                 if (country == null)
                 {
-                    country = new Country { Name = item.country };
+                    country = new Country { Name = normalizedName };
+
+                    if (_countryCurrencyMap.TryGetValue(normalizedName, out var currencySymbol))
+                    {
+                        var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
+                        if (dbCurrency == null)
+                        {
+                            dbCurrency = new Currency { Symbol = currencySymbol };
+                            _context.Currencies.Add(dbCurrency);
+                            _context.SaveChanges();
+                        }
+
+                        country.Currency = dbCurrency;
+                    }
+
                     _context.Countries.Add(country);
                     _context.SaveChanges();
                 }
@@ -259,7 +289,7 @@ public class DataCollector
         public int year;
         public List<Dictionary<string, string>> cast;
         public Dictionary<string, double> ratings;
-        public string country;
+        public string production_country;
     }
 
     private int convertStringIdToInt(string str)
@@ -268,4 +298,23 @@ public class DataCollector
         return int.Parse(numberPart);
     }
 
+    private static readonly Dictionary<string, string> _countryNormalization = new()
+    {
+        { "UK", "United Kingdom" },
+        { "United Kingdom", "United Kingdom" },
+        { "USA", "United States" },
+        { "United States", "United States" },
+        { "États-Unis", "United States" },
+        { "Deutschland", "Germany" },
+        { "Germany", "Germany" },
+
+    };
+
+    private static readonly Dictionary<string, string> _countryCurrencyMap = new()
+{
+    { "Germany", "EUR" },
+    { "United Kingdom", "GBP" },
+    { "France", "EUR" },
+    { "United States", "USD" }
+};
 }
