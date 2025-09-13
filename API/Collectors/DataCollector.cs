@@ -118,6 +118,7 @@ public class DataCollector
                 var movie = _context.Movies.FirstOrDefault(m => m.MovieId == refinedId);
                 if (movie == null) continue;
 
+                // Currency holen oder neu anlegen
                 var dbCurrency = _context.Currencies.FirstOrDefault(c => c.Symbol == currencySymbol);
                 if (dbCurrency == null)
                 {
@@ -130,8 +131,14 @@ public class DataCollector
                 movie.RevenueDomestic = revenueDomestic;
                 movie.RevenueInternational = revenueInternational;
 
-                if (movie.Country != null && movie.Country.Currency == null)
+                // WICHTIG: Country mit Currency verbinden
+                if (movie.Country != null && movie.Country.CurrencyId == null)
                 {
+                    movie.Country.Currency = dbCurrency;
+                }
+                else if (movie.Country != null && movie.Country.CurrencyId != dbCurrency.Id)
+                {
+                    // Falls Konflikt -> nur setzen, wenn noch kein Currency hinterlegt
                     movie.Country.Currency = dbCurrency;
                 }
             }
@@ -150,6 +157,7 @@ public class DataCollector
             items = JsonConvert.DeserializeObject<List<Item>>(json) ?? new List<Item>();
         }
 
+        var currencyDict = new Dictionary<string, string>();
         foreach (var item in items)
         {
             int refinedId = convertStringIdToInt(item.id.ToString());
@@ -158,12 +166,16 @@ public class DataCollector
                 .FirstOrDefault(m => m.MovieId == refinedId && m.Title == item.title);
 
             Country? country = null;
-            if (!string.IsNullOrEmpty(item.country))
+            if (!string.IsNullOrEmpty(item.production_country))
             {
-                country = _context.Countries.FirstOrDefault(c => c.Name == item.country);
+                string normalizedName = _countryNormalization.ContainsKey(item.production_country)
+                    ? _countryNormalization[item.production_country]
+                    : item.production_country;
+
+                country = _context.Countries.FirstOrDefault(c => c.Name == normalizedName);
                 if (country == null)
                 {
-                    country = new Country { Name = item.country };
+                    country = new Country { Name = normalizedName };
                     _context.Countries.Add(country);
                     _context.SaveChanges();
                 }
@@ -259,7 +271,7 @@ public class DataCollector
         public int year;
         public List<Dictionary<string, string>> cast;
         public Dictionary<string, double> ratings;
-        public string country;
+        public string production_country;
     }
 
     private int convertStringIdToInt(string str)
@@ -267,5 +279,17 @@ public class DataCollector
         string numberPart = str.Substring(1);
         return int.Parse(numberPart);
     }
+
+    private static readonly Dictionary<string, string> _countryNormalization = new()
+    {
+        { "UK", "United Kingdom" },
+        { "United Kingdom", "United Kingdom" },
+        { "USA", "United States" },
+        { "United States", "United States" },
+        { "États-Unis", "United States" },
+        { "Deutschland", "Germany" },
+        { "Germany", "Germany" },
+
+    };
 
 }
